@@ -1,4 +1,6 @@
+import 'package:appointment/presentation/home/home_page.dart';
 import 'package:appointment/presentation/login/login_page.dart';
+import 'package:appointment/presentation/login/sign_up_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Firebase Auth',
       debugShowCheckedModeBanner: false,
+      routes: {
+        "/login_page": (context) => const LoginPage(),
+        "/sign_page": (context) => const SignUpPage(),
+        "/home_page": (context) => const HomePage(),
+      },
       theme: ThemeData(
         textTheme: Theme.of(context).textTheme.apply(
               fontFamily: 'Montserrat',
