@@ -2,7 +2,7 @@ import 'package:appointment/decorations_and_colors/colors/login_page_colors.dart
 import 'package:appointment/decorations_and_colors/decorations/login_page_decorations.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:appointment/ui/home_page.dart';
+import 'package:appointment/presentation/home/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

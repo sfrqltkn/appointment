@@ -1,8 +1,9 @@
 import 'package:appointment/data/entity/products.dart';
 import 'package:appointment/decorations_and_colors/colors/home_page_colors.dart';
 import 'package:appointment/decorations_and_colors/colors/login_page_colors.dart';
-import 'package:appointment/ui/home_page.dart';
 import 'package:flutter/material.dart';
+
+import '../home/widgets/nav_icon.dart';
 
 class CartPage extends StatefulWidget {
   final Products product;
