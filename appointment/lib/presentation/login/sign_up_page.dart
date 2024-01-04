@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 import 'package:appointment/decorations_and_colors/colors/login_page_colors.dart';
 import 'package:appointment/decorations_and_colors/decorations/login_page_decorations.dart';
-import 'package:appointment/ui/login_page.dart';
+import 'package:appointment/presentation/login/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -175,22 +175,7 @@ Container topImageContainer(double height, String topImage) {
   );
 }
 
-// Burası hoş geldiniz mesaj fonksiyonu
-// ignore: camel_case_types, unused_element
-class _homepagetext extends StatelessWidget {
-  const _homepagetext();
 
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      " Merhaba, \n HoşGeldiniz",
-      style: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-          color: MainColors.headerAndForgotAccountColor),
-    );
-  }
-}
 
 final emailController = TextEditingController();
 final passwordController = TextEditingController();

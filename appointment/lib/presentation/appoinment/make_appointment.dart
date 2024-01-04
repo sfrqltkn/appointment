@@ -1,12 +1,14 @@
 import 'package:appointment/data/entity/products.dart';
 import 'package:appointment/decorations_and_colors/colors/home_page_colors.dart';
 import 'package:appointment/decorations_and_colors/colors/login_page_colors.dart';
-import 'package:appointment/ui/cart.page.dart';
+import 'package:appointment/presentation/card/cart_page.dart';
 import 'package:appointment/ui/cubit/make_appointmentcubit.dart';
-import 'package:appointment/ui/home_page.dart';
+import 'package:appointment/presentation/home/home_page.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../home/widgets/nav_icon.dart';
 
 class ApointmentMake extends StatefulWidget {
   const ApointmentMake({super.key});

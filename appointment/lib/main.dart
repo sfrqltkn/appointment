@@ -1,10 +1,10 @@
 // import 'package:appointment/presentation/appointment_make/appointment_make.dart';
 import 'package:appointment/ui/cubit/make_appointmentcubit.dart';
-import 'package:appointment/ui/home_page.dart';
+import 'package:appointment/presentation/home/home_page.dart';
 import 'package:appointment/presentation/home/pictures_page.dart';
-import 'package:appointment/ui/login_page.dart';
+import 'package:appointment/presentation/login/login_page.dart';
 import 'package:appointment/presentation/login/sign_up_page.dart';
-import 'package:appointment/ui/make_appointment.dart';
+import 'package:appointment/presentation/appoinment/make_appointment.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,7 +1,9 @@
 import 'package:appointment/decorations_and_colors/colors/home_page_colors.dart';
-import 'package:appointment/ui/home_page.dart';
+import 'package:appointment/presentation/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+
+import 'widgets/nav_icon.dart';
 
 class PicturePage extends StatefulWidget {
   const PicturePage({super.key});

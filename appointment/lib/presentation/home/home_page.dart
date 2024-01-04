@@ -1,6 +1,7 @@
 import 'package:appointment/decorations_and_colors/colors/home_page_colors.dart';
-import 'package:appointment/decorations_and_colors/decorations/login_page_decorations.dart';
 import 'package:flutter/material.dart';
+import 'widgets/home_stack.dart';
+import 'widgets/nav_icon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,6 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPageIndex = 0;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -41,43 +43,7 @@ class _HomePageState extends State<HomePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Positioned(
-                      child: Image.asset(
-                        "assets/images/womenImage.jpg",
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 20.0,
-                    left: 95,
-                    right: 95,
-                    height: 40,
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: ContainerBoxDecorations.buttonDecoration(),
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, "/appointMake_page");
-                        },
-                        child: const Text(
-                          'Randevu Al',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: HomeColors.buttonFontColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              const HomeStack(),
               const Row(
                 children: [
                   CustomImageContainer(
@@ -372,30 +338,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class NavBarIcon extends StatelessWidget {
-  final double iconSize;
-  final String labelText;
-  final IconData icon;
-
-  const NavBarIcon(
-      {super.key,
-      required this.iconSize,
-      required this.labelText,
-      required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return NavigationDestination(
-      selectedIcon: Icon(
-        icon,
-        size: iconSize,
-      ),
-      icon: Icon(icon),
-      label: labelText,
     );
   }
 }
