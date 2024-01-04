@@ -30,7 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_bloc:
+  cloud_firestore:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -39,6 +40,7 @@ dependencies:
   firebase_database: ^10.3.3
   firebase_core: ^2.21.0
   firebase_auth: ^4.12.1
+  flutter_image_slideshow: ^0.1.6
 
 dev_dependencies:
   flutter_test:
@@ -49,7 +51,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -73,6 +75,23 @@ flutter:
     - assets/images/randevu.jpg
     - assets/images/whatsapp.jpg
     - assets/images/loginImage.png
+    - assets/images/sac1.jpg.avif
+    - assets/images/sac2.jpg.avif
+    - assets/images/sac3.jpg.avif
+    - assets/images/sac4.jpg.avif
+    - assets/images/face1.avif
+    - assets/images/face2.avif
+    - assets/images/face3.avif
+    - assets/images/face4.avif
+    - assets/images/kiroj1.avif
+    - assets/images/kiroj2.avif
+    - assets/images/kiroj3.avif
+    - assets/images/kiroj4.avif
+    - assets/images/care1.avif
+    - assets/images/care2.avif
+    - assets/images/care3.avif
+    - assets/images/care4.avif
+    - resimler/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
