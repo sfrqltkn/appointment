@@ -2,10 +2,10 @@ import 'package:appointment/decorations_and_colors/colors/login_page_colors.dart
 import 'package:appointment/decorations_and_colors/decorations/login_page_decorations.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:appointment/presentation/home/home_page.dart';
+import 'package:appointment/ui/home_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color: MainColors.mainHeaderTextColor),
+                      color: MainColors.headerAndForgotAccountColor),
                 ),
               ],
             ),
@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.only(top: 35),
             child: Container(
               height: 55,
-              width: 150,
+              width: 155,
               margin: const EdgeInsets.symmetric(horizontal: 50),
               decoration: ContainerBoxDecorations.buttonDecoration(),
               child: TextButton(
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 buildTextButton(
                   text: "Şifremi Unuttum",
-                  onPressed: () => Navigator.pushNamed(context, "/sign_page"),
+                  onPressed: () => Navigator.pushNamed(context, "/"),
                 ),
                 buildTextButton(
                   text: "Hesap Oluştur",

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_interpolation_to_compose_strings, avoid_print
 import 'package:appointment/decorations_and_colors/colors/login_page_colors.dart';
 import 'package:appointment/decorations_and_colors/decorations/login_page_decorations.dart';
-import 'package:appointment/presentation/login/login_page.dart';
+import 'package:appointment/ui/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +38,10 @@ class _SignUpPage extends State<SignUpPage> {
               children: [
                 Text(
                   "Merhaba \n Hoşgeldiniz...",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: MainColors.headerAndForgotAccountColor),
                 ),
               ],
             ),
@@ -49,7 +52,7 @@ class _SignUpPage extends State<SignUpPage> {
                 const EdgeInsets.only(top: 16, bottom: 16, right: 10, left: 15),
             child: _erorMessage(errorMessage: errorMessageEmpty),
           ),
-//------------------------------FORM FIELD---------------------------//
+          //------------------------------FORM FIELD---------------------------//
           Padding(
             padding:
                 const EdgeInsets.only(top: 0, bottom: 25, right: 25, left: 25),
@@ -184,7 +187,7 @@ class _homepagetext extends StatelessWidget {
       style: TextStyle(
           fontSize: 32,
           fontWeight: FontWeight.bold,
-          color: MainColors.mainHeaderTextColor),
+          color: MainColors.headerAndForgotAccountColor),
     );
   }
 }
@@ -202,7 +205,7 @@ class EmailTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: emailController,
-      style: TextStyle(color: MainColors.formFieldInputColor),
+      style: TextStyle(color: MainColors.headerAndForgotAccountColor),
       decoration: InputDecorationBuilder.textFormDecorationMail(),
     );
   }
@@ -219,7 +222,7 @@ class PasswordTextField extends StatelessWidget {
     return TextFormField(
       obscureText: true,
       controller: passwordController,
-      style: TextStyle(color: MainColors.formFieldInputColor),
+      style: TextStyle(color: MainColors.headerAndForgotAccountColor),
       decoration: InputDecorationBuilder.textFormDecorationPassword(false),
     );
   }
