@@ -4,9 +4,11 @@ class SignButton extends StatelessWidget {
   const SignButton({
     super.key,
     required this.btnName,
+    required this.func,
   });
 
   final String btnName;
+  final Function func;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,9 @@ class SignButton extends StatelessWidget {
       height: 45,
       margin: const EdgeInsets.fromLTRB(15, 5, 15, 0),
       child: ElevatedButton(
-        onPressed: () async {},
+        onPressed: () async {
+          await func();
+        },
         child: Text(
           btnName,
           style: const TextStyle(

@@ -13,12 +13,6 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final firstName = TextEditingController();
-  final lastName = TextEditingController();
-  final phoneNumber = TextEditingController();
-  final password = TextEditingController();
-  final email = TextEditingController();
-
   late String erormessageEmpty = "";
 
   @override
@@ -38,8 +32,15 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 5),
               SizedBox(
-                  height: MediaQuery.of(context).size.height,
-                  child: SignUpForm()),
+                height: 500,
+                child: SignUpForm(
+                  updateErrorMessage: (String errorMessage) {
+                    setState(() {
+                      erormessageEmpty = errorMessage;
+                    });
+                  },
+                ),
+              ),
             ],
           ),
         ),
