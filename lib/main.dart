@@ -1,5 +1,5 @@
-import 'package:appointment/ui/screens/login_page.dart';
-import 'package:appointment/ui/screens/sign_up_page.dart';
+import 'package:appointment/ui/screens/login/login_page.dart';
+import 'package:appointment/ui/screens/sign/sign_up_page.dart';
 import 'package:appointment/ui/theme/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

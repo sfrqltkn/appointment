@@ -8,6 +8,7 @@ class ThemeColorData with ChangeNotifier {
     fontFamily: GoogleFonts.merriweather().fontFamily,
     //AppBar theme
     appBarTheme: AppBarTheme(
+      toolbarHeight: 50,
       centerTitle: true,
       backgroundColor: HexColor("#A29B9B"),
       titleTextStyle: TextStyle(
