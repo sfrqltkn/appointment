@@ -1,11 +1,16 @@
+import 'package:appointment/firebase_options.dart';
 import 'package:appointment/ui/screens/login/login_page.dart';
 import 'package:appointment/ui/screens/sign/sign_up_page.dart';
 import 'package:appointment/ui/theme/theme_data.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(ChangeNotifierProvider<ThemeColorData>(
       create: (BuildContext context) => ThemeColorData(),
       child: const MyApp()));

@@ -1,10 +1,11 @@
-import 'package:appointment/ui/compenents/widgets/logo_circle.dart';
+import 'package:appointment/ui/compenents/sign_in_up/logo_circle.dart';
 import 'package:appointment/ui/screens/login/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
   static const String routeName = "/";
 
   @override
@@ -12,7 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  late String erormessageEmpty = "fsefsefef";
+  late String erormessageEmpty = "";
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +39,16 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(fontSize: 18, color: HexColor("#545454")),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 20),
-                const SizedBox(
-                  height: 280,
-                  child: LoginForm(),
+                const SizedBox(height: 5),
+                SizedBox(
+                  height: 260,
+                  child: LoginForm(
+                    updateErrorMessage: (String errorMessage) {
+                      setState(() {
+                        erormessageEmpty = errorMessage;
+                      });
+                    },
+                  ),
                 ),
               ],
             ),

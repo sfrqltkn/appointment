@@ -1,0 +1,95 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+class UsersRepository {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final userCollection = FirebaseFirestore.instance.collection("users");
+
+  Future<String?> signIn(
+      {required String email, required String password}) async {
+    try {
+      final userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      if (userCredential.user != null) {
+        return null;
+      } else {
+        return 'User not found';
+      }
+    } catch (e) {
+      if (e is FirebaseAuthException) {
+        switch (e.code) {
+          case 'invalid-credential':
+            return 'User not found';
+          case 'invalid-email':
+            return 'Incorrectly formatted Email address';
+          case 'network-request-failed':
+            return 'Internet Connection Problem';
+          default:
+            return 'An unexpected error occurred';
+        }
+      } else {
+        return 'An unexpected error occurred';
+      }
+    }
+  }
+
+  Future<String?> signUp(
+      {required String firstname,
+      required String lastname,
+      required String phoneNumber,
+      required String email,
+      required String password}) async {
+    try {
+      final userCredential = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+
+      if (userCredential.user != null) {
+        _registerUser(
+            userId: userCredential.user!.uid,
+            firstname: firstname,
+            lastname: lastname,
+            phoneNumber: phoneNumber,
+            email: email,
+            password: password);
+        return null;
+      } else {
+        return 'An unexpected error occurred';
+      }
+    } catch (e) {
+      print("Hata: $e");
+      if (e is FirebaseAuthException) {
+        switch (e.code) {
+          case 'email-already-in-use':
+            return 'This email address is already in use.';
+          case 'invalid-email':
+            return 'Incorrectly formatted Email address';
+          case 'network-request-failed':
+            return 'Internet Connection Problem';
+          default:
+            return 'An unexpected error occurred';
+        }
+      } else {
+        return 'An unexpected error occurred';
+      }
+    }
+  }
+
+  Future<void> _registerUser(
+      {required String userId,
+      required String firstname,
+      required String lastname,
+      required String phoneNumber,
+      required String email,
+      required String password}) async {
+    await userCollection.doc().set({
+      "userId": _auth.currentUser?.uid,
+      "firstname": firstname,
+      "lastname": lastname,
+      "phoneNumber": phoneNumber,
+      "email": email,
+      "password": password
+    });
+  }
+}
