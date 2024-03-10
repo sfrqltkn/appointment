@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AccountCubit extends Cubit<List<Users>> {
-  AccountCubit() : super(<Users>[]);
+class AccountCubitGet extends Cubit<List<Users>> {
+  AccountCubitGet() : super(<Users>[]);
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   var userCollection = FirebaseFirestore.instance.collection("users");

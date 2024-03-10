@@ -37,7 +37,7 @@ class _LoginFormState extends State<LoginForm> {
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true),
             // SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             SignButton(
               func: _signIn,
               btnName: "Sign In",

@@ -1,5 +1,5 @@
+import 'package:appointment/ui/compenents/home_page/appointment_stack_button.dart';
 import 'package:appointment/ui/compenents/home_page/drawer.dart';
-import 'package:appointment/ui/screens/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,7 +13,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   //
   String selectedPage = "";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,14 +31,19 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: SafeArea(
           child: Center(
-            child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, LoginPage.routeName);
-                },
-                child: const Text("Login Page")),
+            child: Column(
+              children: [
+                SizedBox(height: 20),
+                SizedBox(
+                  width: 380,
+                  height: 380,
+                  child: ApointmentButtonStack(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

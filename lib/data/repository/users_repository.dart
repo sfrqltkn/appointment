@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:collection';
 
 class UsersRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -58,7 +59,7 @@ class UsersRepository {
         return 'An unexpected error occurred';
       }
     } catch (e) {
-      print("Hata: $e");
+      // print("Hata: $e");
       if (e is FirebaseAuthException) {
         switch (e.code) {
           case 'email-already-in-use':
@@ -91,5 +92,15 @@ class UsersRepository {
       "email": email,
       "password": password
     });
+  }
+
+  Future<void> update(String userId, String firstname, String lastname,
+      String phoneNumber, String email) async {
+    var updateUser = HashMap<String, dynamic>();
+    updateUser["email"] = email;
+    updateUser["firstname"] = firstname;
+    updateUser["lastname"] = lastname;
+    updateUser["phoneNumber"] = phoneNumber;
+    userCollection.doc(userId).update(updateUser);
   }
 }

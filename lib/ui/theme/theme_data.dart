@@ -12,7 +12,7 @@ class ThemeColorData with ChangeNotifier {
       centerTitle: true,
       backgroundColor: HexColor("#A29B9B"),
       titleTextStyle: TextStyle(
-        color: HexColor("#602E17"),
+        color: HexColor("#6D412D"),
         fontSize: 36,
         fontWeight: FontWeight.w900,
         fontFamily: GoogleFonts.merriweather().fontFamily,
@@ -46,7 +46,6 @@ class ThemeColorData with ChangeNotifier {
   );
 
   ThemeData get themeColor {
-    // Tema yeşilse "green" temasını, değilse "red" temasını döndürür
     return app;
   }
 }

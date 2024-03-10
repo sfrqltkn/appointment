@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+import 'package:appointment/ui/screens/account_page.dart';
 import 'package:flutter/material.dart';
 
 class ListTileBuild extends StatelessWidget {
@@ -27,14 +29,13 @@ class ListTileBuild extends StatelessWidget {
   }
 }
 
-// ignore: non_constant_identifier_names
 var ListTileBuildItems = [
-  const ListTileBuild(
+  ListTileBuild(
     title: "Hesabım",
-    icon: Icon(Icons.person),
-    // onTap: (BuildContext context) {
-    //   Navigator.pushNamed(context, Account.routeName);
-    // },
+    icon: const Icon(Icons.person),
+    onTap: (BuildContext context) {
+      Navigator.pushNamed(context, AccountPage.routeName);
+    },
   ),
   const ListTileBuild(
     title: "Randevularım",
