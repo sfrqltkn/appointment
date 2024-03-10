@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 5),
                 SizedBox(
-                  height: 260,
+                  height: 265,
                   child: LoginForm(
                     updateErrorMessage: (String errorMessage) {
                       setState(() {
