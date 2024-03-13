@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
-  static const String routeName = "/my_account";
+  static const String routeName = "/home_page";
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -67,6 +67,7 @@ class _HomePageState extends State<HomePage> {
                   description:
                       "Hemen Arayın Bilgilendirelim\n ve Randevunuzu Oluşturalım.",
                   iconData: Icons.call,
+                  routers: "call",
                 ),
                 SizedBox(height: 150),
                 GestureConnection(
@@ -76,6 +77,7 @@ class _HomePageState extends State<HomePage> {
                   description:
                       "    Uygulamamızda Kolayca\n ve Hızlıca Randevu Oluşturun",
                   iconData: Icons.date_range_sharp,
+                  routers: "appointment",
                 ),
                 SizedBox(height: 150),
                 GestureConnection(
@@ -85,6 +87,7 @@ class _HomePageState extends State<HomePage> {
                   description:
                       "Bizimle Whatsapp Üzerinden\n    İletişime Geçin",
                   iconData: Icons.call_end_outlined,
+                  routers: "whatsapp",
                 ),
                 SizedBox(height: 150),
               ],
