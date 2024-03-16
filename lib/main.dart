@@ -2,6 +2,7 @@ import 'package:appointment/data/cubit/account_get_user_cubit.dart';
 import 'package:appointment/data/cubit/account_update_user_cubit.dart';
 import 'package:appointment/firebase_options.dart';
 import 'package:appointment/ui/screens/account_page.dart';
+import 'package:appointment/ui/screens/chat_bot.dart';
 import 'package:appointment/ui/screens/home_page.dart';
 import 'package:appointment/ui/screens/login/login_page.dart';
 import 'package:appointment/ui/screens/make_appointment_page.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
           AccountPage.routeName: (context) => const AccountPage(),
           HomePage.routeName: (context) => const HomePage(),
           MakeAppointment.routeName: (context) => const MakeAppointment(),
+          ChatBot.routeName: (context) => const ChatBot(),
         },
         debugShowCheckedModeBanner: false,
         theme: Provider.of<ThemeColorData>(context).themeColor,

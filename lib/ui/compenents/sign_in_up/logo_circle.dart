@@ -12,7 +12,7 @@ class LogoCircleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 5, 0, 20),
+      margin: const EdgeInsets.fromLTRB(0, 10, 0, 20),
       child: CircleAvatar(
         radius: radius,
         backgroundImage: AssetImage(imageAssets),

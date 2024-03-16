@@ -8,18 +8,21 @@ class ThemeColorData with ChangeNotifier {
     fontFamily: GoogleFonts.merriweather().fontFamily,
     //AppBar theme
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(
+        color: HexColor("#40241A"),
+        size: 35,
+      ),
       toolbarHeight: 50,
       centerTitle: true,
       backgroundColor: HexColor("#A29B9B"),
       titleTextStyle: TextStyle(
-        color: HexColor("#6D412D"),
-        fontSize: 36,
+        color: HexColor("#40241A"),
+        fontSize: 38,
         fontWeight: FontWeight.w900,
         fontFamily: GoogleFonts.merriweather().fontFamily,
         letterSpacing: 1.5,
       ),
     ),
-
     //ElevatedButton theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(

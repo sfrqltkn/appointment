@@ -83,6 +83,7 @@ class _SignUpFormState extends State<SignUpForm> {
         email: email.text,
         password: password.text);
 
+
     if (signUpResult != null) {
       setState(() {
         widget.updateErrorMessage(signUpResult);

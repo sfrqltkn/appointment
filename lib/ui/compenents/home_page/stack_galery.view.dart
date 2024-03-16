@@ -1,9 +1,10 @@
+import 'package:appointment/ui/screens/galery_view_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class GaleryView extends StatelessWidget {
-  const GaleryView({
+class StackGaleryView extends StatelessWidget {
+  const StackGaleryView({
     super.key,
   });
 
@@ -18,7 +19,12 @@ class GaleryView extends StatelessWidget {
         Positioned(
           bottom: 60,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const GaleryViewPage()));
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: HexColor("#4B4848"),
               shape: const RoundedRectangleBorder(

@@ -1,6 +1,6 @@
 import 'package:appointment/ui/compenents/home_page/appointment_stack_button.dart';
 import 'package:appointment/ui/compenents/home_page/drawer.dart';
-import 'package:appointment/ui/compenents/home_page/galery.view.dart';
+import 'package:appointment/ui/compenents/home_page/stack_galery.view.dart';
 import 'package:appointment/ui/compenents/home_page/gesture_dedector.dart';
 import 'package:appointment/ui/compenents/home_page/operations_performed.dart';
 import 'package:flutter/material.dart';
@@ -38,11 +38,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 SizedBox(height: 20),
-                SizedBox(
-                  width: 380,
-                  height: 380,
-                  child: ApointmentButtonStack(),
-                ),
+                ApointmentButtonStack(),
                 SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -58,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                     OperationsPerformed(index: 3),
                   ],
                 ),
-                GaleryView(),
+                StackGaleryView(),
                 SizedBox(height: 30),
                 GestureConnection(
                   color: "#70483A",

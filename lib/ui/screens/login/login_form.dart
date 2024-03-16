@@ -1,8 +1,8 @@
 import 'package:appointment/data/repository/users_repository.dart';
+import 'package:appointment/ui/compenents/nav_bar/navigation_menu.dart';
 import 'package:appointment/ui/compenents/sign_in_up/form_field_all.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signin_and_upbutton.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signup_text.dart';
-import 'package:appointment/ui/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -62,7 +62,7 @@ class _LoginFormState extends State<LoginForm> {
     } else {
       widget.updateErrorMessage("");
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomePage()),
+        MaterialPageRoute(builder: (context) => const BottomNavigation()),
       );
     }
   }
