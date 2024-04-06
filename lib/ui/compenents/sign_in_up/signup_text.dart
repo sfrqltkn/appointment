@@ -1,5 +1,5 @@
 // ignore: file_names
-import 'package:appointment/ui/screens/sign/sign_up_page.dart';
+import 'package:appointment/sign_up/view/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 

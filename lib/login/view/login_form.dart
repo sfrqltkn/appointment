@@ -1,13 +1,16 @@
 import 'package:appointment/data/repository/users_repository.dart';
-import 'package:appointment/ui/compenents/nav_bar/navigation_menu.dart';
+import 'package:appointment/manager/manager_page.dart';
+import 'package:appointment/login/forgot_password/forgot_password_page.dart';
+import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
 import 'package:appointment/ui/compenents/sign_in_up/form_field_all.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signin_and_upbutton.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signup_text.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({super.key, required this.updateErrorMessage});
-  final Function(String) updateErrorMessage;
+  const LoginForm({super.key});
 
   @override
   State<LoginForm> createState() => _LoginFormState();
@@ -16,7 +19,6 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final passwordController = TextEditingController();
   final emailController = TextEditingController();
-
   final UsersRepository _userRepo = UsersRepository();
 
   @override
@@ -36,13 +38,32 @@ class _LoginFormState extends State<LoginForm> {
                 labelText: "Password",
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true),
-            // SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
             SignButton(
               func: _signIn,
               btnName: "Sign In",
             ),
+            const SizedBox(height: 30),
+            GestureDetector(
+              child: Text(
+                "Forgot Password?",
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: HexColor("#545454"),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ForgotPasswordPage(),
+                    ));
+              },
+            ),
             const SignUpText(),
+            const SizedBox(height: 10),
           ],
         ),
       ),
@@ -51,18 +72,22 @@ class _LoginFormState extends State<LoginForm> {
 
   Future<void> _signIn() async {
     if (emailController.text.isEmpty || passwordController.text.isEmpty) {
-      widget.updateErrorMessage("Please fill in all fields");
+      Provider.of<ErrorMessage>(context, listen: false)
+          .changeLoginMessage("Please fill in all fields");
       return;
     }
 
     final signInResult = await _userRepo.signIn(
         email: emailController.text, password: passwordController.text);
     if (signInResult != null) {
-      widget.updateErrorMessage(signInResult);
+      Provider.of<ErrorMessage>(context, listen: false)
+          .changeLoginMessage(signInResult);
     } else {
-      widget.updateErrorMessage("");
+      Provider.of<ErrorMessage>(context, listen: false).changeLoginMessage("");
+
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const BottomNavigation()),
+        MaterialPageRoute(
+            builder: (context) => const ManagerPage(currentIndex: 0)),
       );
     }
   }

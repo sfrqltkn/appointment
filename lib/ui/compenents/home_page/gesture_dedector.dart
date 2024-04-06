@@ -1,6 +1,5 @@
 import 'dart:io';
-
-import 'package:appointment/ui/screens/make_appointment_page.dart';
+import 'package:appointment/utils/enums/pages_key.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -14,6 +13,7 @@ class GestureConnection extends StatefulWidget {
     required this.title,
     required this.description,
     required this.iconData,
+    this.changePageKey,
     required this.routers,
   });
   final String color;
@@ -22,6 +22,7 @@ class GestureConnection extends StatefulWidget {
   final String description;
   final IconData iconData;
   final String routers;
+  final void Function(PageKeys)? changePageKey;
 
   @override
   State<GestureConnection> createState() => _GestureConnectionState();
@@ -53,7 +54,7 @@ class _GestureConnectionState extends State<GestureConnection> {
         }
       }
     } catch (e) {
-      print('object');
+      debugPrint('object');
       await launchUrl(Uri.parse(webUrl), mode: LaunchMode.externalApplication);
     }
   }
@@ -67,11 +68,9 @@ class _GestureConnectionState extends State<GestureConnection> {
         } else if (widget.routers == "call") {
           callNumber();
         } else if (widget.routers == "appointment") {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => const MakeAppointment()),
-          );
+          widget.changePageKey?.call(PageKeys.appointmentView);
         } else {
-          print("Null");
+          debugPrint("Null");
         }
       },
       child: Stack(
