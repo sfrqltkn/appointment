@@ -1,12 +1,13 @@
 import 'package:appointment/data/repository/users_repository.dart';
+import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
 import 'package:appointment/ui/compenents/sign_in_up/form_field_all.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signin_and_upbutton.dart';
-import 'package:appointment/ui/screens/login/login_page.dart';
+import 'package:appointment/login/view/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignUpForm extends StatefulWidget {
-  const SignUpForm({super.key, required this.updateErrorMessage});
-  final Function(String) updateErrorMessage;
+  const SignUpForm({super.key});
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();
@@ -21,7 +22,6 @@ class _SignUpFormState extends State<SignUpForm> {
 
   final UsersRepository _userRepo = UsersRepository();
 
-  late String erormessageEmpty = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +57,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 labelText: "Password",
                 icon: const Icon(Icons.lock_person_outlined),
                 obscureText: true),
-            const SizedBox(height: 20),
+            const SizedBox(height: 40),
             SignButton(btnName: "Sign Up", func: _signUp),
           ],
         ),
@@ -72,7 +72,8 @@ class _SignUpFormState extends State<SignUpForm> {
         password.text.isEmpty ||
         email.text.isEmpty) {
       setState(() {
-        widget.updateErrorMessage("Please fill in all fields");
+        Provider.of<ErrorMessage>(context, listen: false)
+            .changeSignUpMessage("Please enter your e-mail address");
       });
       return;
     }
@@ -85,11 +86,12 @@ class _SignUpFormState extends State<SignUpForm> {
 
     if (signUpResult != null) {
       setState(() {
-        widget.updateErrorMessage(signUpResult);
+        Provider.of<ErrorMessage>(context, listen: false)
+            .changeSignUpMessage(signUpResult);
       });
     } else {
-      widget.updateErrorMessage("");
-      await Future.delayed(const Duration(seconds: 2));
+      Provider.of<ErrorMessage>(context, listen: false).changeSignUpMessage("");
+      Future.delayed(const Duration(seconds: 2));
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const LoginPage()),
       );

@@ -1,12 +1,13 @@
-import 'package:appointment/ui/screens/sign/sign_up_form.dart';
+import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
+import 'package:appointment/sign_up/view/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({
     super.key,
   });
-  static const String routeName = "/sign_up";
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -26,20 +27,14 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               const SizedBox(height: 80),
               Text(
-                erormessageEmpty,
+                Provider.of<ErrorMessage>(context).signUpError,
                 style: TextStyle(fontSize: 18, color: HexColor("#545454")),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 5),
-              SizedBox(
+              const SizedBox(height: 20),
+              const SizedBox(
                 height: 500,
-                child: SignUpForm(
-                  updateErrorMessage: (String errorMessage) {
-                    setState(() {
-                      erormessageEmpty = errorMessage;
-                    });
-                  },
-                ),
+                child: SignUpForm(),
               ),
             ],
           ),

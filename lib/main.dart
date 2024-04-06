@@ -1,10 +1,11 @@
-import 'package:appointment/data/cubit/account_get_user_cubit.dart';
-import 'package:appointment/data/cubit/account_update_user_cubit.dart';
+import 'package:appointment/account/cubit/account_get_user_cubit.dart';
+import 'package:appointment/account/cubit/account_update_user_cubit.dart';
 import 'package:appointment/firebase_options.dart';
-import 'package:appointment/ui/screens/account_page.dart';
-import 'package:appointment/ui/screens/login/login_page.dart';
-import 'package:appointment/ui/screens/sign/sign_up_page.dart';
-import 'package:appointment/ui/theme/theme_data.dart';
+import 'package:appointment/galery/bloc/galery_cubit.dart';
+import 'package:appointment/home/bloc/page_cubit.dart';
+import 'package:appointment/login/view/login_page.dart';
+import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
+import 'package:appointment/providers/theme/theme_data.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,9 +16,16 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(ChangeNotifierProvider<ThemeColorData>(
-      create: (BuildContext context) => ThemeColorData(),
-      child: const MyApp()));
+  runApp(
+    MultiProvider(providers: [
+      ChangeNotifierProvider<ThemeColorData>(
+        create: (BuildContext context) => ThemeColorData(),
+      ),
+      ChangeNotifierProvider<ErrorMessage>(
+        create: (BuildContext context) => ErrorMessage(),
+      ),
+    ], child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -29,14 +37,14 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => AccountCubitGet()),
         BlocProvider(create: (context) => AccountUpdateState()),
+        BlocProvider(create: (context) => GaleryCubit()..galeryGet()),
+        BlocProvider(create: (context) => PageCubit()),
       ],
       child: MaterialApp(
-        initialRoute: LoginPage.routeName,
         routes: {
           LoginPage.routeName: (context) => const LoginPage(),
-          SignUpPage.routeName: (context) => const SignUpPage(),
-          AccountPage.routeName: (context) => const AccountPage(),
         },
+        initialRoute: LoginPage.routeName,
         debugShowCheckedModeBanner: false,
         theme: Provider.of<ThemeColorData>(context).themeColor,
       ),

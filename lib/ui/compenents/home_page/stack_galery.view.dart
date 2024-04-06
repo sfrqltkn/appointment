@@ -1,10 +1,13 @@
+import 'package:appointment/utils/enums/pages_key.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class GaleryView extends StatelessWidget {
-  const GaleryView({
+class StackGaleryView extends StatelessWidget {
+  final void Function(PageKeys) changePageKey;
+  const StackGaleryView({
     super.key,
+    required this.changePageKey,
   });
 
   @override
@@ -18,7 +21,9 @@ class GaleryView extends StatelessWidget {
         Positioned(
           bottom: 60,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              changePageKey(PageKeys.galleryView);
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: HexColor("#4B4848"),
               shape: const RoundedRectangleBorder(

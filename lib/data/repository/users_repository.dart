@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:collection';
 
+import 'package:flutter/material.dart';
+
 class UsersRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final userCollection = FirebaseFirestore.instance.collection("users");
@@ -54,6 +56,11 @@ class UsersRepository {
             phoneNumber: phoneNumber,
             email: email,
             password: password);
+        if (!userCredential.user!.emailVerified) {
+          await userCredential.user!.sendEmailVerification();
+        } else {
+          debugPrint("Mail is verified");
+        }
         return null;
       } else {
         return 'An unexpected error occurred';
