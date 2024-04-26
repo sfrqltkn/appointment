@@ -9,6 +9,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 import '../home/bloc/page_cubit.dart';
 import '../home/bloc/page_state.dart';
+import '../utils/enums/constant.dart';
 
 class ManagerPage extends StatefulWidget {
   const ManagerPage({super.key, required this.currentIndex});
@@ -41,7 +42,7 @@ class _ManagerPageState extends State<ManagerPage> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Beauty"),
+            title: Text(LocaleConstants.appBar),
           ),
           drawer: NavigationDrawer(
             selectedIndex: _pageIndexForStateDrawer(state),
@@ -51,26 +52,28 @@ class _ManagerPageState extends State<ManagerPage> {
             },
             children: [
               const SizedBox(height: 30),
-              _buildNavigationDrawer(state, Icons.person, "Hesabım", 0),
+              _buildNavigationDrawer(
+                  state, Icons.person, LocaleConstants.bottomAccount, 0),
               const SizedBox(height: 10),
               const Divider(height: 4),
               const SizedBox(height: 10),
               _buildNavigationDrawer(
-                  state, Icons.book_online, "Randevularım", 1),
+                  state, Icons.book_online, LocaleConstants.drawerAppo, 1),
+              const SizedBox(height: 10),
+              const Divider(height: 4),
+              const SizedBox(height: 10),
+              _buildNavigationDrawer(state, Icons.collections_bookmark,
+                  LocaleConstants.bottomGalery, 2),
               const SizedBox(height: 10),
               const Divider(height: 4),
               const SizedBox(height: 10),
               _buildNavigationDrawer(
-                  state, Icons.collections_bookmark, "Galery", 2),
+                  state, Icons.info, LocaleConstants.drawerAbout, 3),
               const SizedBox(height: 10),
               const Divider(height: 4),
               const SizedBox(height: 10),
-              _buildNavigationDrawer(state, Icons.info, "Hakkımızda", 3),
-              const SizedBox(height: 10),
-              const Divider(height: 4),
-              const SizedBox(height: 10),
-              _buildNavigationDrawer(
-                  state, Icons.contact_support, "İletişim ", 3),
+              _buildNavigationDrawer(state, Icons.contact_support,
+                  LocaleConstants.drawerContact, 3),
               const Divider(height: 4),
               const SizedBox(height: 10),
               const SizedBox(height: 20),
@@ -92,9 +95,11 @@ class _ManagerPageState extends State<ManagerPage> {
               _pageCubit.changePageKey(_pageKeyForIndex(index));
             },
             destinations: [
-              _buildNavigationBottom(Icons.home, "Home"),
-              _buildNavigationBottom(Icons.collections_bookmark, "Galery"),
-              _buildNavigationBottom(Icons.person, "Hesabım"),
+              _buildNavigationBottom(Icons.home, LocaleConstants.bottomHome),
+              _buildNavigationBottom(
+                  Icons.collections_bookmark, LocaleConstants.bottomGalery),
+              _buildNavigationBottom(
+                  Icons.person, LocaleConstants.bottomAccount),
             ],
           ),
         );

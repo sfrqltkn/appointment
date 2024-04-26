@@ -1,3 +1,4 @@
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -22,25 +23,23 @@ class OperationsPerformed extends StatelessWidget {
   Widget build(BuildContext context) {
     List<TextData> content = [
       TextData(
-        testContent:
-            '> Kesim-Fön \n> Topuz \n> Gelin Saçı \n> Maşa Düzleştirici \n> Keratin Bakım \n> Boya \n> Röfle',
-        buttonName: "Saç Tasarım",
+        testContent: LocaleConstants.hairOperations,
+        buttonName: LocaleConstants.hairDesign,
         imagePath: "assets/images/sactasarim.jpg",
       ),
       TextData(
-        testContent: '> Manikür \n> Pedikür\n> Kaş\n> Peeling\n> Ağda',
-        buttonName: "Bakım",
+        testContent: LocaleConstants.careOperations,
+        buttonName: LocaleConstants.care,
         imagePath: "assets/images/care.jpg",
       ),
       TextData(
-        testContent: '> Makyaj \n> İpek Kirpik \n> French Oje',
-        buttonName: "Güzellik",
+        testContent: LocaleConstants.beautyOperations,
+        buttonName: LocaleConstants.appBar,
         imagePath: "assets/images/beauty.png",
       ),
       TextData(
-        testContent:
-            '> Skin Care Cream \n> Liguid Eyeliner \n> Göz Altı Maskesi ',
-        buttonName: "Ürünler",
+        testContent: LocaleConstants.productsOperations,
+        buttonName: LocaleConstants.products,
         imagePath: "assets/images/products.png",
       ),
     ];

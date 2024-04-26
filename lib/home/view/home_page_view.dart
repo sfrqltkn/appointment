@@ -1,3 +1,4 @@
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -43,36 +44,42 @@ class HomePageView extends StatelessWidget {
                           Provider.of<PageCubit>(context, listen: false)
                               .changePageKey),
                   const SizedBox(height: 30),
-                  const GestureConnection(
+                  GestureConnection(
                     color: "#70483A",
                     assetsName: "assets/images/call.png",
-                    title: "BİLGİ ALIN ",
-                    description:
-                        "Hemen Arayın Bilgilendirelim\n ve Randevunuzu Oluşturalım.",
+                    title: LocaleConstants.getInformation,
+                    description: LocaleConstants.getInfoDesc,
                     iconData: Icons.call,
                     routers: "call",
+                    titleBottom: -50,
+                    titleRight: 10,
+                    decsBottom: -130,
                   ),
-                  const SizedBox(height: 150),
+                  const SizedBox(height: 200),
                   GestureConnection(
                     changePageKey:
                         BlocProvider.of<PageCubit>(context).changePageKey,
                     color: "#C4C800",
                     assetsName: "assets/images/randevu.png",
-                    title: "RANDEVU ALIN",
-                    description:
-                        "    Uygulamamızda Kolayca\n ve Hızlıca Randevu Oluşturun",
+                    title: LocaleConstants.getAppoCommun,
+                    description: LocaleConstants.getAppoDesc,
                     iconData: Icons.date_range_sharp,
                     routers: "appointment",
+                    titleBottom: -50,
+                    titleRight: -15,
+                    decsBottom: -130,
                   ),
-                  const SizedBox(height: 150),
-                  const GestureConnection(
+                  const SizedBox(height: 200),
+                  GestureConnection(
                     color: "#17FF8F",
                     assetsName: "assets/images/wp.png",
-                    title: "WHATSAPP  ",
-                    description:
-                        "Bizimle Whatsapp Üzerinden\n    İletişime Geçin",
+                    title: LocaleConstants.getWhatsapp,
+                    description: LocaleConstants.getWhatsappDesc,
                     iconData: Icons.call_end_outlined,
                     routers: "whatsapp",
+                    titleBottom: -58,
+                    titleRight: 35,
+                    decsBottom: -105,
                   ),
                   const SizedBox(height: 150),
                 ],

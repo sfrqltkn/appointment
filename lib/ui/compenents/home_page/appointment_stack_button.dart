@@ -1,3 +1,4 @@
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -10,13 +11,12 @@ class ApointmentButtonStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-       width: 380,
-       height: 380,
+      width: 380,
+      height: 380,
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Positioned(
-              child: Image.asset("assets/images/beautyHome.png")),
+          Positioned(child: Image.asset("assets/images/beautyHome.png")),
           Positioned(
             top: 150,
             right: 40,
@@ -24,13 +24,13 @@ class ApointmentButtonStack extends StatelessWidget {
               onPressed: () {},
               style: TextButton.styleFrom(
                 backgroundColor: HexColor("#ffffff"),
-                shape: const RoundedRectangleBorder(
-                    side: BorderSide(width: 2.0)),
+                shape:
+                    const RoundedRectangleBorder(side: BorderSide(width: 2.0)),
               ),
               child: Text(
-                "Get Your\n Appointment",
+                LocaleConstants.getAppointment,
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 25,
                   color: HexColor("#000000"),
                   fontWeight: FontWeight.w600,
                   fontFamily: GoogleFonts.oswald().fontFamily,
@@ -40,13 +40,13 @@ class ApointmentButtonStack extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 158,
-            right: 55,
+            top: 162,
+            right: 43,
             child: Opacity(
               opacity: 0.5,
               child: Icon(
                 Icons.ads_click_rounded,
-                size: 40,
+                size: 30,
                 color: HexColor("#000000"),
               ),
             ),

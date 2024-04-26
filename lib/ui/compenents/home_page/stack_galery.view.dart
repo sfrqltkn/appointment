@@ -1,3 +1,4 @@
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:appointment/utils/enums/pages_key.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,12 +33,12 @@ class StackGaleryView extends StatelessWidget {
               foregroundColor: HexColor("#ffffff"),
             ),
             child: Text(
-              " Gallery View ",
+              LocaleConstants.galeryView,
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 20,
                 fontFamily: GoogleFonts.azeretMono().fontFamily,
                 fontWeight: FontWeight.w500,
-                letterSpacing: 2.2,
+                letterSpacing: 2.0,
               ),
             ),
           ),

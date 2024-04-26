@@ -15,6 +15,9 @@ class GestureConnection extends StatefulWidget {
     required this.iconData,
     this.changePageKey,
     required this.routers,
+    required this.titleBottom,
+    required this.titleRight,
+    required this.decsBottom,
   });
   final String color;
   final String assetsName;
@@ -23,6 +26,9 @@ class GestureConnection extends StatefulWidget {
   final IconData iconData;
   final String routers;
   final void Function(PageKeys)? changePageKey;
+  final double titleBottom;
+  final double titleRight;
+  final double decsBottom;
 
   @override
   State<GestureConnection> createState() => _GestureConnectionState();
@@ -109,8 +115,8 @@ class _GestureConnectionState extends State<GestureConnection> {
             ),
           ),
           Positioned(
-            right: 40,
-            bottom: -45,
+            right: widget.titleRight,
+            bottom: widget.titleBottom,
             child: Text(
               widget.title,
               style: TextStyle(
@@ -121,7 +127,7 @@ class _GestureConnectionState extends State<GestureConnection> {
             ),
           ),
           Positioned(
-            bottom: -110,
+            bottom: widget.decsBottom,
             child: Text(
               widget.description,
               style: TextStyle(

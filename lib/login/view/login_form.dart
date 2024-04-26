@@ -5,6 +5,7 @@ import 'package:appointment/providers/login_and_signUp_message.dart/eror_message
 import 'package:appointment/ui/compenents/sign_in_up/form_field_all.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signin_and_upbutton.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signup_text.dart';
+import 'package:appointment/utils/enums/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
@@ -29,24 +30,24 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             FormFieldAll(
                 controller: emailController,
-                labelText: "Email",
+                labelText: LocaleConstants.email,
                 icon: const Icon(Icons.person_2_outlined),
                 obscureText: false),
             const SizedBox(height: 15),
             FormFieldAll(
                 controller: passwordController,
-                labelText: "Password",
+                labelText: LocaleConstants.password,
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true),
             const SizedBox(height: 25),
             SignButton(
               func: _signIn,
-              btnName: "Sign In",
+              btnName: LocaleConstants.signButton,
             ),
             const SizedBox(height: 30),
             GestureDetector(
               child: Text(
-                "Forgot Password?",
+                LocaleConstants.passwordForgot,
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   color: HexColor("#545454"),
@@ -55,11 +56,12 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ForgotPasswordPage(),
-                    ));
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ForgotPasswordPage(),
+                  ),
+                );
               },
             ),
             const SignUpText(),

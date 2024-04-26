@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:appointment/sign_up/view/sign_up_page.dart';
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -13,7 +14,7 @@ class SignUpText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Don't Have Account? ",
+        Text(LocaleConstants.signUpMessage,
             style: TextStyle(color: HexColor("#524E4E"), fontSize: 16)),
         TextButton(
           onPressed: () {
@@ -22,7 +23,7 @@ class SignUpText extends StatelessWidget {
             );
           },
           child: Text(
-            "Sign Up",
+            LocaleConstants.signUp,
             style: TextStyle(
               fontSize: 20,
               color: HexColor("#545454"),
