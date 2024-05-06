@@ -1,5 +1,7 @@
+import 'package:appointment/about/about.dart';
 import 'package:appointment/account/view/account_page.dart';
 import 'package:appointment/appointment/view/appointment_page.dart';
+import 'package:appointment/contact/contact.dart';
 import 'package:appointment/galery/view/galery_page.dart';
 import 'package:appointment/home/view/home_page.dart';
 import 'package:appointment/utils/enums/pages_key.dart';
@@ -73,7 +75,7 @@ class _ManagerPageState extends State<ManagerPage> {
               const Divider(height: 4),
               const SizedBox(height: 10),
               _buildNavigationDrawer(state, Icons.contact_support,
-                  LocaleConstants.drawerContact, 3),
+                  LocaleConstants.drawerContact, 4),
               const Divider(height: 4),
               const SizedBox(height: 10),
               const SizedBox(height: 20),
@@ -146,7 +148,11 @@ class _ManagerPageState extends State<ManagerPage> {
       case PageKeys.myAccountView:
         return const AccountPage();
       case PageKeys.appointmentView:
-        return const AppointmentPage();
+        return AppointmentPage();
+      case PageKeys.aboutView:
+        return const AboutPage();
+      case PageKeys.contactView:
+        return const ContactPage();
     }
   }
 
@@ -174,7 +180,11 @@ class _ManagerPageState extends State<ManagerPage> {
       case PageKeys.myAccountView:
         return 2;
       case PageKeys.appointmentView:
-        return 3;
+        return 0;
+      case PageKeys.aboutView:
+        return 0;
+      case PageKeys.contactView:
+        return 0;
     }
   }
 
@@ -187,7 +197,9 @@ class _ManagerPageState extends State<ManagerPage> {
       case 2:
         return PageKeys.galleryView;
       case 3:
-        return PageKeys.myAccountView;
+        return PageKeys.aboutView;
+      case 4:
+        return PageKeys.contactView;
       default:
         return PageKeys.myAccountView;
     }
@@ -201,6 +213,10 @@ class _ManagerPageState extends State<ManagerPage> {
         return 1;
       case PageKeys.galleryView:
         return 2;
+      case PageKeys.aboutView:
+        return 3;
+      case PageKeys.contactView:
+        return 4;
       case PageKeys.homePage:
         return 6;
     }

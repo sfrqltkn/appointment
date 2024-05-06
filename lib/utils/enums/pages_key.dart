@@ -1,1 +1,8 @@
-enum PageKeys { homePage, galleryView, appointmentView, myAccountView }
+enum PageKeys {
+  homePage,
+  galleryView,
+  appointmentView,
+  myAccountView,
+  aboutView,
+  contactView
+}

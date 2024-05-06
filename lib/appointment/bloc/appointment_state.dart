@@ -1,27 +1,43 @@
 import 'package:appointment/data/model/operation_model.dart';
 
+import '../../data/model/person_model.dart';
+
 class AppointmentState {
   final bool isLoading;
+
   final List<OperationModel> operations;
   final OperationModel? selectedOperation;
-  AppointmentState(
-      {required this.isLoading,
-      required this.operations,
-      this.selectedOperation});
+
+  final List<PersonModel> persons;
+  final PersonModel? selectedPerson;
+
+  AppointmentState({
+    required this.isLoading,
+    required this.operations,
+    this.selectedOperation,
+    required this.persons,
+    this.selectedPerson,
+  });
 
   AppointmentState.initial({
     bool? isLoading,
     List<OperationModel>? operations,
+    List<PersonModel>? persons,
+    this.selectedPerson,
     this.selectedOperation,
   })  : isLoading = isLoading ?? false,
+        persons = persons ?? [],
         operations = operations ?? [];
 
-  AppointmentState copyWith({
-    bool? isLoading,
-    List<OperationModel>? operations,
-    OperationModel? selectedOperation,
-  }) {
+  AppointmentState copyWith(
+      {bool? isLoading,
+      List<OperationModel>? operations,
+      OperationModel? selectedOperation,
+      List<PersonModel>? persons,
+      PersonModel? selectedPerson}) {
     return AppointmentState(
+        selectedPerson: selectedPerson ?? this.selectedPerson,
+        persons: persons ?? this.persons,
         isLoading: isLoading ?? this.isLoading,
         selectedOperation: selectedOperation ?? this.selectedOperation,
         operations: operations ?? this.operations);

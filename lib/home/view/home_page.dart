@@ -1,3 +1,5 @@
+import 'package:appointment/about/about.dart';
+import 'package:appointment/contact/contact.dart';
 import 'package:appointment/galery/view/galery_page.dart';
 
 import 'package:appointment/account/view/account_page.dart';
@@ -33,6 +35,10 @@ class _HomePageState extends State<HomePage> {
             return const AppointmentPage();
           case PageKeys.myAccountView:
             return const AccountPage();
+          case PageKeys.aboutView:
+            return const AboutPage();
+          case PageKeys.contactView:
+            return const ContactPage();
         }
       },
     );

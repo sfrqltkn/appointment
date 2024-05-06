@@ -3,6 +3,7 @@ import 'package:appointment/data/repository/appointment_repository.dart';
 import 'package:appointment/data/repository_services.dart/appointment_repository_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../data/model/person_model.dart';
 import 'appointment_state.dart';
 
 class AppointmentCubit extends Cubit<AppointmentState> {
@@ -16,7 +17,18 @@ class AppointmentCubit extends Cubit<AppointmentState> {
     final result = await _repositoryService.getOperations();
     emit(state.copyWith(isLoading: false, operations: result ?? []));
   }
-  void setSelectedOperation(OperationModel operationModel){
+
+  void setSelectedOperation(OperationModel operationModel) {
     emit(state.copyWith(selectedOperation: operationModel));
+  }
+
+  void setSelectedPerson(PersonModel personModel) {
+    emit(state.copyWith(selectedPerson: personModel));
+  }
+  
+  Future<void> getPersons() async {
+    emit(state.copyWith(isLoading: true));
+    final result = await _repositoryService.getPerson();
+    emit(state.copyWith(isLoading: false, persons: result ?? []));
   }
 }
