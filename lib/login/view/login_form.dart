@@ -5,7 +5,6 @@ import 'package:appointment/providers/login_and_signUp_message.dart/eror_message
 import 'package:appointment/ui/compenents/sign_in_up/form_field_all.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signin_and_upbutton.dart';
 import 'package:appointment/ui/compenents/sign_in_up/signup_text.dart';
-import 'package:appointment/utils/enums/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +21,33 @@ class _LoginFormState extends State<LoginForm> {
   final emailController = TextEditingController();
   final UsersRepository _userRepo = UsersRepository();
 
+  // void _saveUserToDevice() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   prefs.setString("email", emailController.text);
+  //   prefs.setString("password", passwordController.text);
+  // }
+
+  // void _checkUserFromDevice() async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   final String? email = prefs.getString("email");
+  //   final String? password = prefs.getString("password");
+  //   if (email != null && password != null) {
+  //     Navigator.of(context).pushReplacement(
+  //       MaterialPageRoute(
+  //           builder: (context) => const ManagerPage(currentIndex: 0)),
+  //     );
+  //   }
+  // }
+
+  // @override
+  // void initState() async {
+  //   SharedPreferences pref = await SharedPreferences.getInstance();
+  //   await pref.clear();
+  //   _saveUserToDevice();
+  //   _checkUserFromDevice();
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,24 +56,24 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             FormFieldAll(
                 controller: emailController,
-                labelText: LocaleConstants.email,
+                labelText: "Email",
                 icon: const Icon(Icons.person_2_outlined),
                 obscureText: false),
             const SizedBox(height: 15),
             FormFieldAll(
                 controller: passwordController,
-                labelText: LocaleConstants.password,
+                labelText: "Password",
                 icon: const Icon(Icons.lock_outline),
                 obscureText: true),
             const SizedBox(height: 25),
             SignButton(
               func: _signIn,
-              btnName: LocaleConstants.signButton,
+              btnName: "Sign In",
             ),
             const SizedBox(height: 30),
             GestureDetector(
               child: Text(
-                LocaleConstants.passwordForgot,
+                "Forgot Password?",
                 style: TextStyle(
                   decoration: TextDecoration.underline,
                   color: HexColor("#545454"),
@@ -56,12 +82,11 @@ class _LoginFormState extends State<LoginForm> {
                 ),
               ),
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ForgotPasswordPage(),
-                  ),
-                );
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ForgotPasswordPage(),
+                    ));
               },
             ),
             const SignUpText(),

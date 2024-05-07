@@ -1,8 +1,8 @@
 import 'package:appointment/data/repository/users_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AccountUpdateState extends Cubit<void> {
-  AccountUpdateState() : super(0);
+class AccountUpdateCubit extends Cubit<void> {
+  AccountUpdateCubit() : super(0);
 
   var userRepo = UsersRepository();
 

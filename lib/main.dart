@@ -1,9 +1,12 @@
 import 'package:appointment/account/cubit/account_get_user_cubit.dart';
 import 'package:appointment/account/cubit/account_update_user_cubit.dart';
+import 'package:appointment/appointment/bloc/choose_date_cubit.dart';
+import 'package:appointment/appointment/bloc/my_appointment_get_cubit.dart';
 import 'package:appointment/firebase_options.dart';
 import 'package:appointment/galery/bloc/galery_cubit.dart';
 import 'package:appointment/home/bloc/page_cubit.dart';
 import 'package:appointment/login/view/login_page.dart';
+import 'package:appointment/providers/appointment_select_provider.dart/user_select.dart';
 import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
 import 'package:appointment/providers/theme/theme_data.dart';
 import 'package:appointment/utils/enums/Constant.dart';
@@ -28,6 +31,9 @@ Future<void> main() async {
           ChangeNotifierProvider<ErrorMessage>(
             create: (BuildContext context) => ErrorMessage(),
           ),
+          ChangeNotifierProvider<UserSelect>(
+            create: (BuildContext context) => UserSelect(),
+          ),
         ],
         child: EasyLocalization(
             supportedLocales: const [
@@ -48,10 +54,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => AccountCubitGet()),
-        BlocProvider(create: (context) => AccountUpdateState()),
+        BlocProvider(create: (context) => AccountGetCubit()),
+        BlocProvider(create: (context) => AccountUpdateCubit()),
         BlocProvider(create: (context) => GaleryCubit()..galeryGet()),
         BlocProvider(create: (context) => PageCubit()),
+        BlocProvider(create: (context) => ChooseDateCubit()),
+        BlocProvider(
+            create: (context) => MyAppointmentGetCubit()..getMyAppointment()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

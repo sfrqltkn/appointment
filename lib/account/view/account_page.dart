@@ -31,7 +31,7 @@ class _AccountPageState extends State<AccountPage> {
   }
 
   Future<void> _fetchUserData() async {
-    await context.read<AccountCubitGet>().getUser().then((_) {
+    await context.read<AccountGetCubit>().getUser().then((_) {
       setState(() {
         _isLoading = false;
       });
@@ -42,10 +42,10 @@ class _AccountPageState extends State<AccountPage> {
   Widget build(BuildContext context) {
     return _isLoading
         ? const Center(child: CircularProgressIndicator())
-        : BlocBuilder<AccountCubitGet, List<Users>>(
+        : BlocBuilder<AccountGetCubit, List<Users>>(
             builder: (context, usersList) {
               if (usersList.isNotEmpty) {
-                var userData = usersList.first; // Assuming only one user
+                var userData = usersList.first;
                 return ListView(
                   padding: const EdgeInsets.all(16.0),
                   children: [
@@ -85,7 +85,7 @@ class _AccountPageState extends State<AccountPage> {
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () async {
-                        context.read<AccountUpdateState>().update(
+                        context.read<AccountUpdateCubit>().update(
                               userData.userId,
                               firstName.text,
                               lastName.text,

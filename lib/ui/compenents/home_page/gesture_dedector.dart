@@ -46,7 +46,6 @@ class _GestureConnectionState extends State<GestureConnection> {
     String text = '';
     String androidUrl = "whatsapp://send?phone=$contact&text=$text";
     String iosUrl = "https://wa.me/$contact?text=${Uri.parse(text)}";
-
     String webUrl = 'https://api.whatsapp.com/send/?phone=$contact&text=hi';
 
     try {

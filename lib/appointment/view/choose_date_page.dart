@@ -1,8 +1,12 @@
 import 'package:appointment/appointment/bloc/appointment_state.dart';
+import 'package:appointment/appointment/bloc/choose_date_cubit.dart';
 import 'package:appointment/appointment/widget/choose_date_button_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
-// import '../../data/model/booking_datetime_converted.dart';
+import '../../data/model/booking_datetime_converted.dart';
+import '../widget/choose_date_widget.dart';
 
 class ChooseDatePage extends StatefulWidget {
   const ChooseDatePage({super.key, required this.state, required this.price});
@@ -21,6 +25,7 @@ class _ChooseDatePageState extends State<ChooseDatePage> {
   int? _currentIndex;
   bool _dateSelected = false;
   bool _timeSelected = false;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +36,9 @@ class _ChooseDatePageState extends State<ChooseDatePage> {
             SliverToBoxAdapter(
               child: Column(
                 children: <Widget>[
-                  const BookingTextWidget(text: 'Select Appointment Day'),
+                  const ChooseTextWidget(text: 'Select Appointment Day'),
                   _tableCalendar(),
-                  const BookingTextWidget(text: 'Select Appointment Time')
+                  const ChooseTextWidget(text: 'Select Appointment Time')
                 ],
               ),
             ),
@@ -93,10 +98,20 @@ class _ChooseDatePageState extends State<ChooseDatePage> {
                         width: 250,
                         title: 'Make Appointment',
                         onPressed: () async {
-                          // final getDate = DateConverted.getDate(_currentDay);
-                          // final getDay =
-                          //     DateConverted.getDay(_currentDay.weekday);
-                          // final getTime = DateConverted.getTime(_currentIndex!);
+                          final getDate = DateConverted.getDate(_currentDay);
+                          final getDay =
+                              DateConverted.getDay(_currentDay.weekday);
+                          final getTime = DateConverted.getTime(_currentIndex!);
+                          debugPrint(getDay);
+                          debugPrint(getDate);
+                          context.read<ChooseDateCubit>().updateAndCreate(
+                              _auth.currentUser!.uid.toString(),
+                              getDate,
+                              getDay,
+                              getTime,
+                              widget.price,
+                              widget.state.selectedOperation!.name.toString(),
+                              widget.state.selectedPerson!.name.toString());
                         },
                         disable: _timeSelected && _dateSelected ? false : true,
                       ),
@@ -111,7 +126,6 @@ class _ChooseDatePageState extends State<ChooseDatePage> {
     );
   }
 
-  //table calendar
   Widget _tableCalendar() {
     return TableCalendar(
       focusedDay: _focusDay,
@@ -139,29 +153,6 @@ class _ChooseDatePageState extends State<ChooseDatePage> {
           _dateSelected = true;
         });
       }),
-    );
-  }
-}
-
-class BookingTextWidget extends StatelessWidget {
-  const BookingTextWidget({
-    super.key,
-    required this.text,
-  });
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
-      child: Center(
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          ),
-        ),
-      ),
     );
   }
 }

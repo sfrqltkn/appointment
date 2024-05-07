@@ -82,7 +82,7 @@ class _SignUpFormState extends State<SignUpForm> {
         email.text.isEmpty) {
       setState(() {
         Provider.of<ErrorMessage>(context, listen: false)
-            .changeSignUpMessage("Please enter your e-mail address");
+            .changeSignUpMessage("Please fill in all fields");
       });
       return;
     }
@@ -107,5 +107,3 @@ class _SignUpFormState extends State<SignUpForm> {
     }
   }
 }
-
-

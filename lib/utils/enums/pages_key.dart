@@ -4,5 +4,6 @@ enum PageKeys {
   appointmentView,
   myAccountView,
   aboutView,
-  contactView
+  contactView,
+  myAppointment
 }

@@ -4,7 +4,6 @@ import '../../data/model/person_model.dart';
 
 class AppointmentState {
   final bool isLoading;
-
   final List<OperationModel> operations;
   final OperationModel? selectedOperation;
 

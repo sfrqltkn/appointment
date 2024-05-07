@@ -29,7 +29,7 @@ class _GaleryPageState extends State<GaleryPage> {
     return SingleChildScrollView(
       child: Center(
         child: _isLoading
-            ? const CircularProgressIndicator() // Veriler yüklenirken gösterilecek widget
+            ? const CircularProgressIndicator()
             : BlocBuilder<GaleryCubit, List<Galery>>(
                 builder: (context, galeryList) {
                   debugPrint(galeryList.length.toString());

@@ -1,4 +1,5 @@
 import 'package:appointment/about/about.dart';
+import 'package:appointment/appointment/view/my_appointment_page.dart';
 import 'package:appointment/contact/contact.dart';
 import 'package:appointment/galery/view/galery_page.dart';
 
@@ -39,6 +40,8 @@ class _HomePageState extends State<HomePage> {
             return const AboutPage();
           case PageKeys.contactView:
             return const ContactPage();
+          case PageKeys.myAppointment:
+            return const MyAppointmentPage();
         }
       },
     );

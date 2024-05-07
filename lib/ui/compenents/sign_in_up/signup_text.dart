@@ -3,6 +3,9 @@ import 'package:appointment/sign_up/view/sign_up_page.dart';
 import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
+
+import '../../../providers/login_and_signUp_message.dart/eror_message.dart';
 
 class SignUpText extends StatelessWidget {
   const SignUpText({
@@ -21,6 +24,8 @@ class SignUpText extends StatelessWidget {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(builder: (context) => const SignUpPage()),
             );
+            Provider.of<ErrorMessage>(context, listen: false)
+                .changeLoginMessage("");
           },
           child: Text(
             LocaleConstants.signUp,
