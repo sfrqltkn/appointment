@@ -3,7 +3,8 @@ enum CollectionKeys {
   person('person'),
   appointments('appointments'),
   users('users'),
-  galery('galery');
+  galery('galery'),
+  products('products');
 
   final String value;
   const CollectionKeys(this.value);

@@ -58,44 +58,48 @@ class OperationsPerformed extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        backgroundColor: HexColor("#ffffff"),
-                        title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      backgroundColor: HexColor("#70483A"),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(content[index].buttonName),
+                          const SizedBox(width: 50),
+                          IconButton(
+                            icon: Icon(
+                              Icons.close,
+                              color: HexColor("#D9D9D9"),
+                              size: 28,
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                      titleTextStyle: const TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.5,
+                      ),
+                      contentTextStyle: TextStyle(
+                        color: HexColor("#D9D9D9"),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 1.8,
+                      ),
+                      content: SingleChildScrollView(
+                        child: ListBody(
                           children: [
-                            Text(
-                              content[index].buttonName,
-                              style: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 1.8),
-                            ),
-                            IconButton(
-                              icon: Icon(
-                                Icons.close,
-                                color: HexColor("#000000"),
-                                size: 28,
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                            ),
+                            Text(content[index].testContent),
                           ],
                         ),
-                        content: SingleChildScrollView(
-                            child: ListBody(
-                          children: [
-                            Text(
-                              content[index].testContent,
-                              style: const TextStyle(
-                                  fontSize: 18, letterSpacing: 1.8),
-                            ),
-                          ],
-                        )),
-                      );
-                    });
+                      ),
+                    );
+                  },
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: HexColor("#A87766"),

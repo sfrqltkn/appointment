@@ -1,4 +1,4 @@
-import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
+import 'package:appointment/providers/login_and_signUp_message/eror_message.dart';
 import 'package:appointment/sign_up/view/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';

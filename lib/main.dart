@@ -6,8 +6,10 @@ import 'package:appointment/firebase_options.dart';
 import 'package:appointment/galery/bloc/galery_cubit.dart';
 import 'package:appointment/home/bloc/page_cubit.dart';
 import 'package:appointment/login/view/login_page.dart';
-import 'package:appointment/providers/appointment_select_provider.dart/user_select.dart';
-import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
+import 'package:appointment/products/bloc/products_cubit.dart';
+import 'package:appointment/providers/appointment_select_provider/user_select.dart';
+import 'package:appointment/providers/login_and_signUp_message/eror_message.dart';
+import 'package:appointment/providers/shopping_provider/shopping_state_provider.dart';
 import 'package:appointment/providers/theme/theme_data.dart';
 import 'package:appointment/utils/enums/Constant.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,6 +17,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+
+import 'appointment/bloc/appointment_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,26 +28,31 @@ Future<void> main() async {
   await EasyLocalization.ensureInitialized();
   runApp(
     MultiProvider(
-        providers: [
-          ChangeNotifierProvider<ThemeColorData>(
-            create: (BuildContext context) => ThemeColorData(),
-          ),
-          ChangeNotifierProvider<ErrorMessage>(
-            create: (BuildContext context) => ErrorMessage(),
-          ),
-          ChangeNotifierProvider<UserSelect>(
-            create: (BuildContext context) => UserSelect(),
-          ),
+      providers: [
+        ChangeNotifierProvider<ThemeColorData>(
+          create: (BuildContext context) => ThemeColorData(),
+        ),
+        ChangeNotifierProvider<ErrorMessage>(
+          create: (BuildContext context) => ErrorMessage(),
+        ),
+        ChangeNotifierProvider<UserSelect>(
+          create: (BuildContext context) => UserSelect(),
+        ),
+        ChangeNotifierProvider<ShoppingStateProvider>(
+          create: (BuildContext context) => ShoppingStateProvider(),
+        ),
+      ],
+      child: EasyLocalization(
+        supportedLocales: const [
+          LocaleConstants.enLocale,
+          LocaleConstants.trLocale,
         ],
-        child: EasyLocalization(
-            supportedLocales: const [
-              LocaleConstants.enLocale,
-              LocaleConstants.trLocale,
-            ],
-            path: LocaleConstants.localePath,
-            saveLocale: true,
-            fallbackLocale: LocaleConstants.enLocale,
-            child: const MyApp())),
+        path: LocaleConstants.localePath,
+        saveLocale: true,
+        fallbackLocale: LocaleConstants.enLocale,
+        child: const MyApp(),
+      ),
+    ),
   );
 }
 
@@ -61,6 +70,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ChooseDateCubit()),
         BlocProvider(
             create: (context) => MyAppointmentGetCubit()..getMyAppointment()),
+        BlocProvider(create: (context) => AppointmentCubit()..getPersons()),
+        BlocProvider(create: (context) => AppointmentCubit()..getOperations()),
+        BlocProvider(create: (context) => ProductsCubit()..productsGet()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

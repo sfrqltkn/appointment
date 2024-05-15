@@ -7,10 +7,9 @@ class MyAppointmentText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15, top: 15),
+      padding: const EdgeInsets.only(bottom: 0.5, top: 15, left: 65),
       child: Text(
-        text,
-        textAlign: TextAlign.center,
+        "$text:",
         style: TextStyle(
           color: HexColor("#545454"),
           fontSize: 15,

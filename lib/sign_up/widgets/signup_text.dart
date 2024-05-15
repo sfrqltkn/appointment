@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 
-import '../../../providers/login_and_signUp_message.dart/eror_message.dart';
+import '../../providers/login_and_signUp_message/eror_message.dart';
 
 class SignUpText extends StatelessWidget {
   const SignUpText({

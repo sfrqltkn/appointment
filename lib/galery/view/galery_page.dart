@@ -32,7 +32,6 @@ class _GaleryPageState extends State<GaleryPage> {
             ? const CircularProgressIndicator()
             : BlocBuilder<GaleryCubit, List<Galery>>(
                 builder: (context, galeryList) {
-                  debugPrint(galeryList.length.toString());
                   if (galeryList.isNotEmpty) {
                     return Column(
                       children: List.generate(

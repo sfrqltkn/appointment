@@ -1,13 +1,12 @@
 import 'package:appointment/data/repository/users_repository.dart';
-import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
-import 'package:appointment/ui/compenents/sign_in_up/form_field_all.dart';
-import 'package:appointment/ui/compenents/sign_in_up/signin_and_upbutton.dart';
+import 'package:appointment/providers/login_and_signUp_message/eror_message.dart';
+import 'package:appointment/login/widgets/form_field_all.dart';
+import 'package:appointment/login/widgets/signin_and_upbutton.dart';
 import 'package:appointment/login/view/login_page.dart';
 import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../ui/compenents/sign_in_up/go_back_button.dart';
+import '../widgets/go_back_button.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});

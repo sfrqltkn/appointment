@@ -11,7 +11,7 @@ class MyAppointmentGetCubit extends Cubit<List<MyAppointmentModel>> {
   var userCollection =
       FirebaseFirestore.instance.collection(CollectionKeys.appointments.value);
 
-  Future<void> getMyAppointment() async {
+  Future<dynamic> getMyAppointment() async {
     userCollection
         .where("userId", isEqualTo: _auth.currentUser?.uid)
         .snapshots()

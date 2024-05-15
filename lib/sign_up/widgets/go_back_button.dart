@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../login/view/login_page.dart';
-import '../../../providers/login_and_signUp_message.dart/eror_message.dart';
-import '../../../utils/enums/constant.dart';
+import '../../login/view/login_page.dart';
+import '../../providers/login_and_signUp_message/eror_message.dart';
+import '../../utils/enums/constant.dart';
 
 class GoBackButton extends StatelessWidget {
   const GoBackButton({

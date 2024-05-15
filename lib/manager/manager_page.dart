@@ -3,15 +3,19 @@ import 'package:appointment/account/view/account_page.dart';
 import 'package:appointment/appointment/view/appointment_page.dart';
 import 'package:appointment/appointment/view/my_appointment_page.dart';
 import 'package:appointment/contact/contact.dart';
+import 'package:appointment/data/model/products_model.dart';
 import 'package:appointment/galery/view/galery_page.dart';
 import 'package:appointment/home/view/home_page.dart';
 import 'package:appointment/utils/enums/pages_key.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-
+import 'package:provider/provider.dart';
 import '../home/bloc/page_cubit.dart';
 import '../home/bloc/page_state.dart';
+import '../products/view/products_page.dart';
+import '../products/view/shopping_cart_page.dart';
+import '../providers/appointment_select_provider/user_select.dart';
 import '../utils/enums/constant.dart';
 
 class ManagerPage extends StatefulWidget {
@@ -24,6 +28,13 @@ class ManagerPage extends StatefulWidget {
 }
 
 class _ManagerPageState extends State<ManagerPage> {
+  late List<Products> exPro = [
+    Products(
+        name: "Example Cream",
+        description: "Kullanışlı",
+        price: 750,
+        url: "https://i.imgur.com/I23l4NZ.jpeg"),
+  ];
   late PageCubit _pageCubit;
 
   @override
@@ -92,9 +103,10 @@ class _ManagerPageState extends State<ManagerPage> {
               if (index == 0) {
                 setState(() {
                   context.read<PageCubit>().changePageKey(PageKeys.homePage);
+                  Provider.of<UserSelect>(context, listen: false)
+                      .changeSelectPerson(false);
                 });
               }
-
               _pageCubit.changePageKey(_pageKeyForIndex(index));
             },
             destinations: [
@@ -156,6 +168,10 @@ class _ManagerPageState extends State<ManagerPage> {
         return const ContactPage();
       case PageKeys.myAppointment:
         return const MyAppointmentPage();
+      case PageKeys.productsView:
+        return const ProductsPage();
+      case PageKeys.shoppingView:
+        return const ShoppingCartPage();
     }
   }
 
@@ -189,6 +205,10 @@ class _ManagerPageState extends State<ManagerPage> {
       case PageKeys.myAppointment:
         return 0;
       case PageKeys.contactView:
+        return 0;
+      case PageKeys.productsView:
+        return 0;
+      case PageKeys.shoppingView:
         return 0;
     }
   }
@@ -226,6 +246,10 @@ class _ManagerPageState extends State<ManagerPage> {
         return 5;
       case PageKeys.homePage:
         return 6;
+      case PageKeys.productsView:
+        return 7;
+      case PageKeys.shoppingView:
+        return 8;
     }
   }
 }

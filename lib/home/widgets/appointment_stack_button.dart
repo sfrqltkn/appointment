@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import '../../utils/enums/pages_key.dart';
+
 class ApointmentButtonStack extends StatelessWidget {
+  final void Function(PageKeys) changePageKey;
   const ApointmentButtonStack({
     super.key,
+    required this.changePageKey,
   });
 
   @override
@@ -21,7 +25,9 @@ class ApointmentButtonStack extends StatelessWidget {
             top: 150,
             right: 40,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                changePageKey(PageKeys.appointmentView);
+              },
               style: TextButton.styleFrom(
                 backgroundColor: HexColor("#ffffff"),
                 shape:

@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-import '../../ui/compenents/home_page/appointment_stack_button.dart';
-import '../../ui/compenents/home_page/gesture_dedector.dart';
-import '../../ui/compenents/home_page/operations_performed.dart';
-import '../../ui/compenents/home_page/stack_galery.view.dart';
+import '../widgets/appointment_stack_button.dart';
+import '../widgets/gesture_dedector.dart';
+import '../widgets/operations_performed.dart';
+import '../widgets/products_info.dart';
+import '../widgets/stack_galery.view.dart';
 import '../bloc/page_cubit.dart';
 import '../bloc/page_state.dart';
 
@@ -23,7 +24,14 @@ class HomePageView extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 20),
-                  const ApointmentButtonStack(),
+                  ApointmentButtonStack(
+                      changePageKey:
+                          Provider.of<PageCubit>(context, listen: false)
+                              .changePageKey),
+                  ProductsInfo(
+                      changePageKey:
+                          Provider.of<PageCubit>(context, listen: false)
+                              .changePageKey),
                   const SizedBox(height: 50),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,

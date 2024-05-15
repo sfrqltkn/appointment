@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../home/bloc/page_cubit.dart';
-import '../ui/compenents/home_page/gesture_dedector.dart';
+import '../home/widgets/gesture_dedector.dart';
 import '../utils/enums/constant.dart';
 
 class ContactPage extends StatelessWidget {

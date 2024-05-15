@@ -1,7 +1,7 @@
 import 'package:appointment/account/cubit/account_get_user_cubit.dart';
 import 'package:appointment/account/cubit/account_update_user_cubit.dart';
 import 'package:appointment/data/model/users_model.dart';
-import 'package:appointment/ui/compenents/account_page/users_info_field.dart';
+import 'package:appointment/account/widgets/users_info_field.dart';
 import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

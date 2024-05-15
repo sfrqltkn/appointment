@@ -2,7 +2,7 @@ import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../data/model/person_model.dart';
-import '../../providers/appointment_select_provider.dart/user_select.dart';
+import '../../providers/appointment_select_provider/user_select.dart';
 import '../bloc/appointment_cubit.dart';
 import '../bloc/appointment_state.dart';
 

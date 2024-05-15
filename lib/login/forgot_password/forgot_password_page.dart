@@ -1,12 +1,12 @@
-import 'package:appointment/ui/compenents/sign_in_up/form_field_all.dart';
-import 'package:appointment/ui/compenents/sign_in_up/go_back_button.dart';
-import 'package:appointment/ui/compenents/sign_in_up/signin_and_upbutton.dart';
+import 'package:appointment/login/widgets/form_field_all.dart';
+import 'package:appointment/sign_up/widgets/go_back_button.dart';
+import 'package:appointment/login/widgets/signin_and_upbutton.dart';
 import 'package:appointment/utils/enums/constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-import '../../providers/login_and_signUp_message.dart/eror_message.dart';
+import '../../providers/login_and_signUp_message/eror_message.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
