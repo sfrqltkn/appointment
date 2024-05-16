@@ -3,9 +3,8 @@ import 'package:appointment/products/view/shopping_cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:provider/provider.dart';
-import '../../providers/shopping_provider/shopping_state_provider.dart';
 import '../bloc/products_cubit.dart';
+import '../bloc/products_data.dart';
 
 class ProductsPage extends StatefulWidget {
   const ProductsPage({super.key});
@@ -108,10 +107,7 @@ class _ProductsPageState extends State<ProductsPage> {
                                     icon:
                                         const Icon(Icons.shopping_bag_rounded),
                                     onPressed: () {
-                                      Provider.of<ShoppingStateProvider>(
-                                              context,
-                                              listen: false)
-                                          .addProduct(product);
+                                      addSelectedItems(context, product);
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(

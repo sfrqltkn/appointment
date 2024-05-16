@@ -2,27 +2,71 @@ import 'package:flutter/material.dart';
 import '../../data/model/products_model.dart';
 
 class ShoppingStateProvider with ChangeNotifier {
-  int productCount = 1;
-  final List<Products> _shoppingItems = [];
+  final List<Products> shoppingItems = [];
 
   List<Products> get getShoppingItems {
-    return _shoppingItems;
+    return shoppingItems;
   }
 
-  void changeProductCount(int count) {
-    productCount = count;
+  //**********************************************************//
+  int totalPrice() {
+    int totalItemsPrice =
+        (careCount * 550) + (intensiveCount * 450) + (herbalCount * 250);
+    return totalItemsPrice;
+  }
+
+  //**********************************************************//
+  int careCount = 0;
+  int intensiveCount = 0;
+  int herbalCount = 0;
+
+  void changecareCount(int count) {
+    careCount = count;
     notifyListeners();
   }
 
-  void removeOneItem({required int index}) {
-    if (index >= 0 && index < _shoppingItems.length) {
-      _shoppingItems.removeAt(index);
-      notifyListeners();
+  void changeintensiveCount(int count) {
+    intensiveCount = count;
+    notifyListeners();
+  }
+
+  void changeherbalCount(int count) {
+    herbalCount = count;
+    notifyListeners();
+  }
+
+  ///**************************************/**************** */ */
+  bool isProductWithPrice450Exists() {
+    for (var product in shoppingItems) {
+      if (product.price == 450) {
+        return true;
+      }
     }
+    return false;
   }
 
-  void addProduct(Products product) {
-    _shoppingItems.add(product);
-    notifyListeners();
+  bool isProductWithPrice550Exists() {
+    for (var product in shoppingItems) {
+      if (product.price == 550) {
+        return true;
+      }
+    }
+    return false;
   }
+
+  bool isProductWithPrice250Exists() {
+    for (var product in shoppingItems) {
+      if (product.price == 250) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  //**********************************************************//
+  final List<Products> shoppingCareCreamItems = [];
+
+  final List<Products> shoppingIntensiveItems = [];
+
+  final List<Products> shoppingHerbalItems = [];
 }

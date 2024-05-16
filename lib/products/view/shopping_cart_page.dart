@@ -5,17 +5,21 @@ import '../../providers/shopping_provider/shopping_state_provider.dart';
 import '../widgets/bottom_checkout.dart';
 import 'shopping_cart_widget.dart';
 
-class ShoppingCartPage extends StatelessWidget {
+class ShoppingCartPage extends StatefulWidget {
   const ShoppingCartPage({super.key});
 
+  @override
+  State<ShoppingCartPage> createState() => _ShoppingCartPageState();
+}
 
+class _ShoppingCartPageState extends State<ShoppingCartPage> {
   @override
   Widget build(BuildContext context) {
     final shoppingProvider = Provider.of<ShoppingStateProvider>(context);
 
     return Scaffold(
       bottomSheet: const CardBottomSheetWidget(),
-      body: shoppingProvider.getShoppingItems.isEmpty
+      body: shoppingProvider.shoppingItems.isEmpty
           ? const Center(
               child: CircularProgressIndicator(),
             )
@@ -23,10 +27,10 @@ class ShoppingCartPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView.builder(
-                    itemCount: shoppingProvider.getShoppingItems.length,
+                    itemCount: shoppingProvider.shoppingItems.length,
                     itemBuilder: (context, index) {
                       return ShoppingCartWidget(
-                        product: shoppingProvider.getShoppingItems[index],
+                        product: shoppingProvider.shoppingItems[index],
                       );
                     },
                   ),

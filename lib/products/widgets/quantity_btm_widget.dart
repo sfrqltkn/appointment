@@ -1,7 +1,12 @@
+import 'package:appointment/data/model/products_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/shopping_provider/shopping_state_provider.dart';
 
 class QuantityBottomSheetWidget extends StatefulWidget {
-  const QuantityBottomSheetWidget({super.key});
+  const QuantityBottomSheetWidget({super.key, required this.products});
+  final Products products;
 
   @override
   State<QuantityBottomSheetWidget> createState() =>
@@ -29,11 +34,8 @@ class _QuantityBottomSheetWidgetState extends State<QuantityBottomSheetWidget> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  // setState(() {
-                  //   Provider.of<ShoppingStateProvider>(context, listen: false)
-                  //       .changeproductCount(index + 1);
-                  // });
-                  // Navigator.pop(context);
+                  chanceItemsCount(index + 1, widget.products);
+                  Navigator.pop(context);
                 },
                 child: Center(
                   child: Padding(
@@ -47,5 +49,34 @@ class _QuantityBottomSheetWidgetState extends State<QuantityBottomSheetWidget> {
         ),
       ],
     );
+  }
+
+  void chanceItemsCount(int count, Products products) {
+    final shoppingProvider =
+        Provider.of<ShoppingStateProvider>(context, listen: false);
+
+    if (products.price == 550) {
+      shoppingProvider.shoppingCareCreamItems.clear();
+
+      shoppingProvider.shoppingCareCreamItems
+          .addAll(List.generate(count, (index) => products));
+      shoppingProvider
+          .changecareCount(shoppingProvider.shoppingCareCreamItems.length);
+    } else if (products.price == 450) {
+      shoppingProvider.shoppingIntensiveItems.clear();
+
+      shoppingProvider.shoppingIntensiveItems
+          .addAll(List.generate(count, (index) => products));
+      shoppingProvider
+          .changeintensiveCount(shoppingProvider.shoppingIntensiveItems.length);
+    } else {
+      shoppingProvider.shoppingHerbalItems.clear();
+
+      shoppingProvider.shoppingHerbalItems
+          .addAll(List.generate(count, (index) => products));
+
+      shoppingProvider
+          .changeherbalCount(shoppingProvider.shoppingHerbalItems.length);
+    }
   }
 }
