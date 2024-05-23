@@ -1,10 +1,9 @@
 import 'package:appointment/account/cubit/account_get_user_cubit.dart';
 import 'package:appointment/account/cubit/account_update_user_cubit.dart';
 import 'package:appointment/appointment/bloc/choose_date_cubit.dart';
-import 'package:appointment/appointment/bloc/my_appointment_get_cubit.dart';
+import 'package:appointment/appointment/bloc/appointment_show_cubit.dart';
 import 'package:appointment/firebase_options.dart';
 import 'package:appointment/galery/bloc/galery_cubit.dart';
-import 'package:appointment/home/bloc/page_cubit.dart';
 import 'package:appointment/login/view/login_page.dart';
 import 'package:appointment/products/bloc/products_cubit.dart';
 import 'package:appointment/providers/appointment_select_provider/user_select.dart';
@@ -18,7 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-import 'appointment/bloc/appointment_cubit.dart';
+import 'appointment/bloc/create_appointment_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,13 +65,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AccountGetCubit()),
         BlocProvider(create: (context) => AccountUpdateCubit()),
         BlocProvider(create: (context) => GaleryCubit()..galeryGet()),
-        BlocProvider(create: (context) => PageCubit()),
         BlocProvider(create: (context) => ChooseDateCubit()),
         BlocProvider(
-            create: (context) => MyAppointmentGetCubit()..getMyAppointment()),
-        BlocProvider(create: (context) => AppointmentCubit()..getPersons()),
-        BlocProvider(create: (context) => AppointmentCubit()..getOperations()),
-        BlocProvider(create: (context) => ProductsCubit()..productsGet()),
+            create: (context) => AppointmentShowCubit()..getShowAppointment()),
+        BlocProvider(
+            create: (context) => CreateAppointmentCubit()..getPersons()),
+        BlocProvider(
+            create: (context) => CreateAppointmentCubit()..getOperations()),
+        BlocProvider(create: (context) => ProductsCubit()..getProducts()),
       ],
       child: MaterialApp(
         localizationsDelegates: context.localizationDelegates,

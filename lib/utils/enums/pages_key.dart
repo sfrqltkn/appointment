@@ -1,11 +1,13 @@
-  enum PageKeys {
+enum PageKeys {
   homePage,
   galleryView,
-  appointmentView,
+  createAppontmentView,
+  appointmentShowView,
+  appointmetManagerView,
   myAccountView,
   aboutView,
   contactView,
-  myAppointment,
   productsView,
-  shoppingView
+  shoppingView,
+  paymentView
 }

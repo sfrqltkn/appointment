@@ -1,7 +1,7 @@
 import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 import '../widgets/appointment_stack_button.dart';
 import '../widgets/gesture_dedector.dart';
@@ -25,13 +25,7 @@ class HomePageView extends StatelessWidget {
                 children: [
                   const SizedBox(height: 20),
                   ApointmentButtonStack(
-                      changePageKey:
-                          Provider.of<PageCubit>(context, listen: false)
-                              .changePageKey),
-                  ProductsInfo(
-                      changePageKey:
-                          Provider.of<PageCubit>(context, listen: false)
-                              .changePageKey),
+                      changePageKey: context.read<PageCubit>().changePageKey),
                   const SizedBox(height: 50),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -48,9 +42,9 @@ class HomePageView extends StatelessWidget {
                     ],
                   ),
                   StackGaleryView(
-                      changePageKey:
-                          Provider.of<PageCubit>(context, listen: false)
-                              .changePageKey),
+                      changePageKey: context.read<PageCubit>().changePageKey),
+                  const SizedBox(height: 30),
+                  const ProductsInfo(),
                   const SizedBox(height: 30),
                   GestureConnection(
                     color: "#70483A",
@@ -65,8 +59,7 @@ class HomePageView extends StatelessWidget {
                   ),
                   const SizedBox(height: 200),
                   GestureConnection(
-                    changePageKey:
-                        BlocProvider.of<PageCubit>(context).changePageKey,
+                    changePageKey: context.read<PageCubit>().changePageKey,
                     color: "#C4C800",
                     assetsName: "assets/images/randevu.png",
                     title: LocaleConstants.getAppoCommun,

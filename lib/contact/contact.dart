@@ -30,7 +30,7 @@ class ContactPage extends StatelessWidget {
               const SizedBox(height: 200),
               GestureConnection(
                 changePageKey:
-                    BlocProvider.of<PageCubit>(context).changePageKey,
+                    context.read<PageCubit>().changePageKey,
                 color: "#C4C800",
                 assetsName: "assets/images/randevu.png",
                 title: LocaleConstants.getAppoCommun,

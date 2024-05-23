@@ -73,9 +73,7 @@ class _GestureConnectionState extends State<GestureConnection> {
         } else if (widget.routers == "call") {
           callNumber();
         } else if (widget.routers == "appointment") {
-          widget.changePageKey?.call(PageKeys.appointmentView);
-        } else if (widget.routers == "myAppointment") {
-          widget.changePageKey?.call(PageKeys.myAppointment);
+          widget.changePageKey?.call(PageKeys.appointmetManagerView);
         } else {
           debugPrint("Null");
         }

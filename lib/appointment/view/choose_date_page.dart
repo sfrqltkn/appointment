@@ -1,6 +1,10 @@
-import 'package:appointment/appointment/bloc/appointment_state.dart';
+import 'package:appointment/appointment/bloc/create_appointment_state.dart';
 import 'package:appointment/appointment/bloc/choose_date_cubit.dart';
 import 'package:appointment/appointment/widget/choose_date_button_widget.dart';
+import 'package:appointment/home/bloc/page_cubit.dart';
+import 'package:appointment/utils/enums/constant.dart';
+import 'package:appointment/utils/enums/pages_key.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,14 +15,13 @@ import '../widget/choose_date_widget.dart';
 class ChooseDatePage extends StatefulWidget {
   const ChooseDatePage({super.key, required this.state, required this.price});
 
-  final AppointmentState state;
+  final CreateAppointmentState state;
   final String price;
   @override
   State<ChooseDatePage> createState() => _ChooseDatePageState();
 }
 
 class _ChooseDatePageState extends State<ChooseDatePage> {
-  //declaration
   CalendarFormat _format = CalendarFormat.month;
   DateTime _focusDay = DateTime.now();
   DateTime _currentDay = DateTime.now();
@@ -36,9 +39,9 @@ class _ChooseDatePageState extends State<ChooseDatePage> {
             SliverToBoxAdapter(
               child: Column(
                 children: <Widget>[
-                  const ChooseTextWidget(text: 'Select Appointment Day'),
+                  ChooseTextWidget(text: LocaleConstants.selectDay),
                   _tableCalendar(),
-                  const ChooseTextWidget(text: 'Select Appointment Time')
+                  ChooseTextWidget(text: LocaleConstants.selectTime),
                 ],
               ),
             ),
@@ -89,29 +92,41 @@ class _ChooseDatePageState extends State<ChooseDatePage> {
                   children: [
                     ElevatedButton(
                       onPressed: () {},
-                      child: Text("${widget.price}  TL"),
+                      child: Text("${widget.price} TL"),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 5, vertical: 5),
                       child: ChooseDateButton(
                         width: 250,
-                        title: 'Make Appointment',
+                        title: LocaleConstants.appointmentButton,
                         onPressed: () async {
+                          if (!mounted) return;
                           final getDate = DateConverted.getDate(_currentDay);
                           final getDay =
-                              DateConverted.getDay(_currentDay.weekday);
+                              DateConverted.getDay(_currentDay.weekday).tr();
                           final getTime = DateConverted.getTime(_currentIndex!);
-                          debugPrint(getDay);
-                          debugPrint(getDate);
-                          context.read<ChooseDateCubit>().updateAndCreate(
-                              _auth.currentUser!.uid.toString(),
-                              getDate,
-                              getDay,
-                              getTime,
-                              widget.price,
-                              widget.state.selectedOperation!.name.toString(),
-                              widget.state.selectedPerson!.name.toString());
+                          try {
+                            await context
+                                .read<ChooseDateCubit>()
+                                .updateAndCreate(
+                                    _auth.currentUser!.uid.toString(),
+                                    getDate,
+                                    getDay.tr(),
+                                    getTime,
+                                    widget.price,
+                                    widget.state.selectedOperation!.name
+                                        .toString(),
+                                    widget.state.selectedPerson!.name
+                                        .toString());
+                            if (mounted) {
+                              context
+                                  .read<PageCubit>()
+                                  .changePageKey(PageKeys.paymentView);
+                            }
+                          } catch (e) {
+                            debugPrint('Error: $e');
+                          }
                         },
                         disable: _timeSelected && _dateSelected ? false : true,
                       ),

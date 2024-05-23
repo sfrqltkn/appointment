@@ -66,7 +66,7 @@ class OperationsPerformed extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(content[index].buttonName),
-                          const SizedBox(width: 50),
+                          const SizedBox(width: 40),
                           IconButton(
                             icon: Icon(
                               Icons.close,

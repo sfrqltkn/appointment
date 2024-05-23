@@ -1,14 +1,15 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../data/model/person_model.dart';
 import '../../providers/appointment_select_provider/user_select.dart';
-import '../bloc/appointment_cubit.dart';
-import '../bloc/appointment_state.dart';
+import '../bloc/create_appointment_state.dart';
+import '../bloc/create_appointment_cubit.dart';
 
 class CustomDropdownPersonWidget extends StatefulWidget {
-  final AppointmentState state;
-  final AppointmentCubit cubit;
+  final CreateAppointmentState state;
+  final CreateAppointmentCubit cubit;
 
   const CustomDropdownPersonWidget({
     super.key,
@@ -33,7 +34,7 @@ class CustomDropdownPersonWidgetState
         hintStyle: TextStyle(fontWeight: FontWeight.w600),
         listItemStyle: TextStyle(fontSize: 18, letterSpacing: 1.5),
       ),
-      hintText: 'Choose a person',
+      hintText: LocaleConstants.customDropdownPerson,
       items: widget.state.persons,
       listItemBuilder: (context, item, isSelected, onItemSelect) => Text(
         item.name ?? '',

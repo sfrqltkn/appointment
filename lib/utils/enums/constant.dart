@@ -30,6 +30,7 @@ class LocaleConstants {
   static String bottomHome = "Ana Sayfa".myLocale;
   static String bottomGalery = "Galeri".myLocale;
   static String bottomAccount = "Hesabım".myLocale;
+  static String bottomCart = "Sepet".myLocale;
   static String drawerAppo = "Randevularım".myLocale;
   static String drawerAbout = "Hakkımızda".myLocale;
   static String drawerContact = "İletişim".myLocale;
@@ -75,6 +76,39 @@ class LocaleConstants {
   static String getWhatsapp = "WHATSAPP  ".myLocale;
   static String getWhatsappDesc =
       " Bizimle Whatsapp Üzerinden\n     İletişime Geçin".myLocale;
+
+  //Products
+  static String emptyCart = "Sepetiniz boş".myLocale;
+  static String emptyCartButton = "Şimdi Alışveriş Yapın".myLocale;
+  static String totalPrice = "Toplam : ".myLocale;
+  static String buyButton = "Satın Al".myLocale;
+  static String keepAddCart = "Alışverişe devam et".myLocale;
+
+  static String buyProductsButton = "Ürünü satın al".myLocale;
+
+  //appointment
+  static String alertTitle = "Mevcut bir randevunuz var".myLocale;
+  static String alertTitle2 = "Mevcut bir randevunuz yok".myLocale;
+  static String alertContent =
+      "Randevunuzu Görüntülemek ister misiniz ?".myLocale;
+  static String alertContent2 =
+      "Yeni bir randevu almak ister misiniz ?".myLocale;
+  static String alertYes = "Evet".myLocale;
+  //appointmentShow
+  static String operation = "Operasyon".myLocale;
+  static String day = "Gün".myLocale;
+  static String date = "Tarih".myLocale;
+  static String person = "Kişi".myLocale;
+  static String time = "Saat".myLocale;
+
+  //appointmentCreate
+  static String customDropdownOperation = "Bir Operasyon Seçiniz".myLocale;
+  static String customDropdownPerson = "Bir Kişi seçiniz".myLocale;
+  static String dateTimeButton="Bir Tarih ve Saat Seçin".myLocale;
+    //chooseDateAndTime
+  static String selectDay = "Randevu Gününü Seçiniz".myLocale;
+  static String selectTime = "Randevu Saatini Seçiniz".myLocale;
+  static String appointmentButton="Randevu Al".myLocale;
 }
 
 extension LocaleExtension on String {

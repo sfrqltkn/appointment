@@ -4,8 +4,18 @@ import '../../data/model/products_model.dart';
 class ShoppingStateProvider with ChangeNotifier {
   final List<Products> shoppingItems = [];
 
-  List<Products> get getShoppingItems {
-    return shoppingItems;
+  void removeProductsWithPrice(int price) {
+    shoppingItems.removeWhere((product) => product.price == price);
+    notifyListeners();
+  }
+  //**********************************************************//
+
+  bool isCheckOutState() {
+    int value = totalPrice();
+    if (value == 0) {
+      return false;
+    }
+    return true;
   }
 
   //**********************************************************//

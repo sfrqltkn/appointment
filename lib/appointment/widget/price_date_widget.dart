@@ -1,6 +1,7 @@
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 
-import '../bloc/appointment_state.dart';
+import '../bloc/create_appointment_state.dart';
 import '../view/choose_date_page.dart';
 
 class BottomPriceAndDate extends StatelessWidget {
@@ -11,7 +12,7 @@ class BottomPriceAndDate extends StatelessWidget {
       required this.activeButton});
 
   final int priceTop;
-  final AppointmentState state;
+  final CreateAppointmentState state;
   final bool activeButton;
 
   @override
@@ -56,9 +57,9 @@ class BottomPriceAndDate extends StatelessWidget {
                     );
                   }
                 },
-                label: const Text(
-                  "Choose a Date and Time",
-                  style: TextStyle(fontSize: 15),
+                label: Text(
+                  LocaleConstants.dateTimeButton,
+                  style: const TextStyle(fontSize: 15),
                 ),
               ),
             ],

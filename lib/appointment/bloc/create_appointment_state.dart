@@ -2,7 +2,7 @@ import 'package:appointment/data/model/operation_model.dart';
 
 import '../../data/model/person_model.dart';
 
-class AppointmentState {
+class CreateAppointmentState {
   final bool isLoading;
   final List<OperationModel> operations;
   final OperationModel? selectedOperation;
@@ -10,7 +10,7 @@ class AppointmentState {
   final List<PersonModel> persons;
   final PersonModel? selectedPerson;
 
-  AppointmentState({
+  CreateAppointmentState({
     required this.isLoading,
     required this.operations,
     this.selectedOperation,
@@ -18,7 +18,7 @@ class AppointmentState {
     this.selectedPerson,
   });
 
-  AppointmentState.initial({
+  CreateAppointmentState.initial({
     bool? isLoading,
     List<OperationModel>? operations,
     List<PersonModel>? persons,
@@ -28,13 +28,13 @@ class AppointmentState {
         persons = persons ?? [],
         operations = operations ?? [];
 
-  AppointmentState copyWith(
+  CreateAppointmentState copyWith(
       {bool? isLoading,
       List<OperationModel>? operations,
       OperationModel? selectedOperation,
       List<PersonModel>? persons,
       PersonModel? selectedPerson}) {
-    return AppointmentState(
+    return CreateAppointmentState(
         selectedPerson: selectedPerson ?? this.selectedPerson,
         persons: persons ?? this.persons,
         isLoading: isLoading ?? this.isLoading,

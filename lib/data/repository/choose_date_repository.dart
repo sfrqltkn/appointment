@@ -16,6 +16,6 @@ class ChooseDateRepository {
     updateAndCreateAppointment["person"] = person;
     updateAndCreateAppointment["price"] = price;
     updateAndCreateAppointment["time"] = time;
-    userCollection.doc(userId).set(updateAndCreateAppointment);
+    await userCollection.doc(userId).set(updateAndCreateAppointment);
   }
 }

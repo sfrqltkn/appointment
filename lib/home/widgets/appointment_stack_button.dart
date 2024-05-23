@@ -26,7 +26,7 @@ class ApointmentButtonStack extends StatelessWidget {
             right: 40,
             child: TextButton(
               onPressed: () {
-                changePageKey(PageKeys.appointmentView);
+                changePageKey(PageKeys.appointmetManagerView);
               },
               style: TextButton.styleFrom(
                 backgroundColor: HexColor("#ffffff"),

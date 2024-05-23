@@ -1,14 +1,30 @@
-import 'package:appointment/data/model/products_model.dart';
-import 'package:appointment/data/repository/products_repository.dart';
+import 'package:appointment/products/bloc/products_state.dart';
+import 'package:appointment/utils/enums/collection_keys.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProductsCubit extends Cubit<List<Products>> {
-  ProductsCubit() : super(<Products>[]);
+import '../../data/model/products_model.dart';
 
-  var pRepo = ProductsRepository();
+class ProductsCubit extends Cubit<ProductsState> {
+  ProductsCubit() : super(ProductsState(data: null));
 
-  Future<void> productsGet() async {
-    var liste = await pRepo.getProducts();
-    emit(liste);
+  var collectionUrl =
+      FirebaseFirestore.instance.collection(CollectionKeys.products.value);
+  var productList = <Products>[];
+
+  Future<dynamic> getProducts() async {
+    emit(state.copyWith(isLoading: true));
+    var querySnapshot = await collectionUrl.get();
+    var documents = querySnapshot.docs;
+
+    productList.clear();
+
+    for (var document in documents) {
+      var key = document.id;
+      var data = document.data();
+      var product = Products.fromJson(data, key);
+      productList.add(product);
+    }
+    emit(state.copyWith(data: productList, isLoading: false));
   }
 }

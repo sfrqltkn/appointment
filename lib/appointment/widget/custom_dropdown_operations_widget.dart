@@ -1,14 +1,15 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:appointment/data/model/operation_model.dart';
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/appointment_select_provider/user_select.dart';
-import '../bloc/appointment_cubit.dart';
-import '../bloc/appointment_state.dart';
+import '../bloc/create_appointment_state.dart';
+import '../bloc/create_appointment_cubit.dart';
 
 class CustomDropdownOperationWidget extends StatefulWidget {
-  final AppointmentState state;
-  final AppointmentCubit cubit;
+  final CreateAppointmentState state;
+  final CreateAppointmentCubit cubit;
 
   const CustomDropdownOperationWidget({
     super.key,
@@ -31,7 +32,7 @@ class CustomDropdownWidgetState extends State<CustomDropdownOperationWidget> {
         hintStyle: TextStyle(fontWeight: FontWeight.w600),
         listItemStyle: TextStyle(fontSize: 18, letterSpacing: 1.5),
       ),
-      hintText: 'Choose a operation',
+      hintText: LocaleConstants.customDropdownOperation,
       items: widget.state.operations,
       listItemBuilder: (context, item, isSelected, onItemSelect) => Text(
         item.name ?? '',

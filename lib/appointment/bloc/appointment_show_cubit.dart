@@ -4,14 +4,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MyAppointmentGetCubit extends Cubit<List<MyAppointmentModel>> {
-  MyAppointmentGetCubit() : super(<MyAppointmentModel>[]);
+import 'appointment_show_state.dart';
+
+class AppointmentShowCubit extends Cubit<AppointmentShowState> {
+  AppointmentShowCubit() : super(AppointmentShowState(data: null));
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   var userCollection =
       FirebaseFirestore.instance.collection(CollectionKeys.appointments.value);
 
-  Future<dynamic> getMyAppointment() async {
+  Future<dynamic> getShowAppointment() async {
+    emit(state.copyWith(isLoading: true));
     userCollection
         .where("userId", isEqualTo: _auth.currentUser?.uid)
         .snapshots()
@@ -27,7 +30,7 @@ class MyAppointmentGetCubit extends Cubit<List<MyAppointmentModel>> {
         myAppointmentList.add(userAppo);
       }
 
-      emit(myAppointmentList);
+      emit(state.copyWith(data: myAppointmentList, isLoading: false));
     });
   }
 }

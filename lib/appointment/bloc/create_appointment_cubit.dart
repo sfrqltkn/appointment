@@ -4,13 +4,13 @@ import 'package:appointment/data/repository_services.dart/appointment_repository
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/model/person_model.dart';
-import 'appointment_state.dart';
+import 'create_appointment_state.dart';
 
-class AppointmentCubit extends Cubit<AppointmentState> {
+class CreateAppointmentCubit extends Cubit<CreateAppointmentState> {
   final AppointmentRepositoryService _repositoryService;
-  AppointmentCubit({AppointmentRepositoryService? repositoryService})
+  CreateAppointmentCubit({AppointmentRepositoryService? repositoryService})
       : _repositoryService = repositoryService ?? AppointmentRepository(),
-        super(AppointmentState.initial());
+        super(CreateAppointmentState.initial());
 
   Future<void> getOperations() async {
     emit(state.copyWith(isLoading: true));
