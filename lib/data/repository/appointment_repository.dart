@@ -4,6 +4,8 @@ import 'package:appointment/utils/enums/collection_keys.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../model/person_model.dart';
+
 class AppointmentRepository implements AppointmentRepositoryService {
   final FirebaseFirestore _firestore;
 
@@ -36,4 +38,33 @@ class AppointmentRepository implements AppointmentRepositoryService {
     }
     return null;
   }
+
+  @override
+  Future<List<PersonModel>?> getPerson() async {
+    try {
+      var personList = <PersonModel>[];
+      final personCollection =
+          _firestore.collection(CollectionKeys.person.value);
+      final result = await personCollection.get();
+
+      if (result.docs.isNotEmpty) {
+        for (var document in result.docs) {
+          var key = document.id;
+          var data = document.data();
+          var operation = PersonModel.fromJson(data, key);
+
+          personList.add(operation);
+        }
+      } else {
+        debugPrint('No data available.');
+      }
+
+      return personList;
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+    return null;
+  }
+
+  
 }

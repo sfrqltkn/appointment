@@ -1,11 +1,11 @@
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
-
-import '../../ui/compenents/home_page/appointment_stack_button.dart';
-import '../../ui/compenents/home_page/gesture_dedector.dart';
-import '../../ui/compenents/home_page/operations_performed.dart';
-import '../../ui/compenents/home_page/stack_galery.view.dart';
+import '../widgets/appointment_stack_button.dart';
+import '../widgets/buy_product_stack_button.dart';
+import '../widgets/gesture_dedector.dart';
+import '../widgets/operations_performed.dart';
+import '../widgets/stack_galery.view.dart';
 import '../bloc/page_cubit.dart';
 import '../bloc/page_state.dart';
 
@@ -22,7 +22,8 @@ class HomePageView extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 20),
-                  const ApointmentButtonStack(),
+                  ApointmentButtonStack(
+                      changePageKey: context.read<PageCubit>().changePageKey),
                   const SizedBox(height: 50),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -38,41 +39,48 @@ class HomePageView extends StatelessWidget {
                       OperationsPerformed(index: 3),
                     ],
                   ),
+                  const SizedBox(height: 50),
                   StackGaleryView(
-                      changePageKey:
-                          Provider.of<PageCubit>(context, listen: false)
-                              .changePageKey),
-                  const SizedBox(height: 30),
-                  const GestureConnection(
-                    color: "#70483A",
-                    assetsName: "assets/images/call.png",
-                    title: "BİLGİ ALIN ",
-                    description:
-                        "Hemen Arayın Bilgilendirelim\n ve Randevunuzu Oluşturalım.",
-                    iconData: Icons.call,
-                    routers: "call",
-                  ),
-                  const SizedBox(height: 150),
+                      changePageKey: context.read<PageCubit>().changePageKey),
+                  const SizedBox(height: 100),
+                  BuyProductsButtonStack(
+                      changePageKey: context.read<PageCubit>().changePageKey),
+                  const SizedBox(height: 80),
                   GestureConnection(
-                    changePageKey:
-                        BlocProvider.of<PageCubit>(context).changePageKey,
+                    changePageKey: context.read<PageCubit>().changePageKey,
                     color: "#C4C800",
                     assetsName: "assets/images/randevu.png",
-                    title: "RANDEVU ALIN",
-                    description:
-                        "    Uygulamamızda Kolayca\n ve Hızlıca Randevu Oluşturun",
+                    title: LocaleConstants.getAppoCommun,
+                    description: LocaleConstants.getAppoDesc,
                     iconData: Icons.date_range_sharp,
                     routers: "appointment",
+                    titleBottom: -50,
+                    titleRight: -15,
+                    decsBottom: -130,
                   ),
-                  const SizedBox(height: 150),
-                  const GestureConnection(
+                  const SizedBox(height: 200),
+                  GestureConnection(
+                    color: "#70483A",
+                    assetsName: "assets/images/call.png",
+                    title: LocaleConstants.getInformation,
+                    description: LocaleConstants.getInfoDesc,
+                    iconData: Icons.call,
+                    routers: "call",
+                    titleBottom: -50,
+                    titleRight: 10,
+                    decsBottom: -130,
+                  ),
+                  const SizedBox(height: 200),
+                  GestureConnection(
                     color: "#17FF8F",
                     assetsName: "assets/images/wp.png",
-                    title: "WHATSAPP  ",
-                    description:
-                        "Bizimle Whatsapp Üzerinden\n    İletişime Geçin",
+                    title: LocaleConstants.getWhatsapp,
+                    description: LocaleConstants.getWhatsappDesc,
                     iconData: Icons.call_end_outlined,
                     routers: "whatsapp",
+                    titleBottom: -58,
+                    titleRight: 35,
+                    decsBottom: -105,
                   ),
                   const SizedBox(height: 150),
                 ],

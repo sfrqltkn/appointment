@@ -1,13 +1,15 @@
 import 'package:appointment/data/model/users_model.dart';
+import 'package:appointment/utils/enums/collection_keys.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AccountCubitGet extends Cubit<List<Users>> {
-  AccountCubitGet() : super(<Users>[]);
+class AccountGetCubit extends Cubit<List<Users>> {
+  AccountGetCubit() : super(<Users>[]);
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  var userCollection = FirebaseFirestore.instance.collection("users");
+  var userCollection =
+      FirebaseFirestore.instance.collection(CollectionKeys.users.value);
 
   Future<void> getUser() async {
     userCollection

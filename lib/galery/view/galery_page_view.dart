@@ -1,4 +1,5 @@
 import 'package:appointment/data/model/galery_view_model.dart';
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,10 +11,10 @@ class GaleryView extends StatelessWidget {
   GaleryView({super.key, required this.galery, required this.index});
 
   final List<String> titleCoursel = [
-    "Eyelash & Nail\n      Eyebrow",
-    "Our Hair Designs",
-    " Make Up & Facial care\n             Wax",
-    "Beauty Products"
+    LocaleConstants.titleOne,
+    LocaleConstants.titleTwo,
+    LocaleConstants.titleThree,
+    LocaleConstants.titleFour
   ];
   @override
   Widget build(BuildContext context) {

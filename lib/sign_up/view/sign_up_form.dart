@@ -1,10 +1,12 @@
 import 'package:appointment/data/repository/users_repository.dart';
-import 'package:appointment/providers/login_and_signUp_message.dart/eror_message.dart';
-import 'package:appointment/ui/compenents/sign_in_up/form_field_all.dart';
-import 'package:appointment/ui/compenents/sign_in_up/signin_and_upbutton.dart';
+import 'package:appointment/providers/login_and_signUp_message/eror_message.dart';
+import 'package:appointment/login/widgets/form_field_all.dart';
+import 'package:appointment/login/widgets/signin_and_upbutton.dart';
 import 'package:appointment/login/view/login_page.dart';
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../widgets/go_back_button.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -30,35 +32,41 @@ class _SignUpFormState extends State<SignUpForm> {
           children: [
             FormFieldAll(
                 controller: firstName,
-                labelText: "First Name",
+                labelText: LocaleConstants.name,
                 icon: const Icon(Icons.person_2_outlined),
                 obscureText: false),
             const SizedBox(height: 20),
             FormFieldAll(
                 controller: lastName,
-                labelText: "Last Name",
+                labelText: LocaleConstants.surname,
                 icon: const Icon(Icons.group_add_outlined),
                 obscureText: false),
             const SizedBox(height: 20),
             FormFieldAll(
                 controller: phoneNumber,
-                labelText: "Phone Number",
+                labelText: LocaleConstants.phoneNumber,
                 icon: const Icon(Icons.mail_outline),
                 obscureText: false),
             const SizedBox(height: 20),
             FormFieldAll(
                 controller: email,
-                labelText: "E-mail",
+                labelText: LocaleConstants.email,
                 icon: const Icon(Icons.mail_outline),
                 obscureText: false),
             const SizedBox(height: 20),
             FormFieldAll(
                 controller: password,
-                labelText: "Password",
+                labelText: LocaleConstants.password,
                 icon: const Icon(Icons.lock_person_outlined),
                 obscureText: true),
             const SizedBox(height: 40),
-            SignButton(btnName: "Sign Up", func: _signUp),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SignButton(btnName: LocaleConstants.signUp, func: _signUp),
+                const GoBackButton(),
+              ],
+            ),
           ],
         ),
       ),
@@ -73,7 +81,7 @@ class _SignUpFormState extends State<SignUpForm> {
         email.text.isEmpty) {
       setState(() {
         Provider.of<ErrorMessage>(context, listen: false)
-            .changeSignUpMessage("Please enter your e-mail address");
+            .changeSignUpMessage("Please fill in all fields");
       });
       return;
     }

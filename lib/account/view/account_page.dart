@@ -1,7 +1,8 @@
 import 'package:appointment/account/cubit/account_get_user_cubit.dart';
 import 'package:appointment/account/cubit/account_update_user_cubit.dart';
 import 'package:appointment/data/model/users_model.dart';
-import 'package:appointment/ui/compenents/account_page/users_info_field.dart';
+import 'package:appointment/account/widgets/users_info_field.dart';
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,22 +29,23 @@ class _AccountPageState extends State<AccountPage> {
     super.initState();
     _fetchUserData();
   }
-    Future<void> _fetchUserData() async {
-    await context.read<AccountCubitGet>().getUser().then((_) {
+
+  Future<void> _fetchUserData() async {
+    await context.read<AccountGetCubit>().getUser().then((_) {
       setState(() {
         _isLoading = false;
       });
     });
   }
 
- @override
+  @override
   Widget build(BuildContext context) {
     return _isLoading
         ? const Center(child: CircularProgressIndicator())
-        : BlocBuilder<AccountCubitGet, List<Users>>(
+        : BlocBuilder<AccountGetCubit, List<Users>>(
             builder: (context, usersList) {
               if (usersList.isNotEmpty) {
-                var userData = usersList.first; // Assuming only one user
+                var userData = usersList.first;
                 return ListView(
                   padding: const EdgeInsets.all(16.0),
                   children: [
@@ -57,44 +59,44 @@ class _AccountPageState extends State<AccountPage> {
                       userController: firstName,
                       userData: userData.firstname,
                       userDatatext: "firstname",
-                      labelText: "First Name",
+                      labelText: LocaleConstants.name,
                     ),
                     const SizedBox(height: 20),
                     UserInfoField(
                       userController: lastName,
                       userData: userData.lastname,
                       userDatatext: "lastname",
-                      labelText: "Last Name",
+                      labelText: LocaleConstants.surname,
                     ),
                     const SizedBox(height: 20),
                     UserInfoField(
                       userController: phoneNumber,
                       userData: userData.phoneNumber,
                       userDatatext: "phoneNumber",
-                      labelText: "Phone Number",
+                      labelText: LocaleConstants.phoneNumber,
                     ),
                     const SizedBox(height: 20),
                     UserInfoField(
                       userController: email,
                       userData: userData.email,
                       userDatatext: "email",
-                      labelText: "E-mail",
+                      labelText: LocaleConstants.email,
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () async {
-                        context.read<AccountUpdateState>().update(
-                          userData.userId,
-                          firstName.text,
-                          lastName.text,
-                          phoneNumber.text,
-                          email.text,
-                        );
+                        context.read<AccountUpdateCubit>().update(
+                              userData.userId,
+                              firstName.text,
+                              lastName.text,
+                              phoneNumber.text,
+                              email.text,
+                            );
                         setState(() {});
                       },
-                      child: const Text(
-                        "Update",
-                        style: TextStyle(
+                      child: Text(
+                        LocaleConstants.updateButton,
+                        style: const TextStyle(
                           fontSize: 20,
                           letterSpacing: 1.5,
                           fontWeight: FontWeight.w700,

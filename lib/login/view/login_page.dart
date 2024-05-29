@@ -1,9 +1,10 @@
 import 'package:appointment/login/view/login_form.dart';
+import 'package:appointment/utils/enums/Constant.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/login_and_signUp_message.dart/eror_message.dart';
+import '../../providers/login_and_signUp_message/eror_message.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Beauty"),
+        title:  Text(LocaleConstants.appBar),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
