@@ -7,6 +7,7 @@ import 'package:appointment/contact/contact.dart';
 import 'package:appointment/data/model/products_model.dart';
 import 'package:appointment/galery/view/galery_page.dart';
 import 'package:appointment/home/view/home_page.dart';
+import 'package:appointment/login/view/login_page.dart';
 import 'package:appointment/payment/payment_page.dart';
 import 'package:appointment/providers/shopping_provider/shopping_state_provider.dart';
 import 'package:appointment/utils/enums/pages_key.dart';
@@ -61,6 +62,17 @@ class _ManagerPageState extends State<ManagerPage> {
           return Scaffold(
             appBar: AppBar(
               title: Text(LocaleConstants.appBar),
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ));
+                    },
+                    icon: const Icon(Icons.logout))
+              ],
             ),
             drawer: NavigationDrawer(
               selectedIndex: _pageIndexForStateDrawer(state),

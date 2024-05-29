@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/model/products_model.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {
-  ProductsCubit() : super(ProductsState(data: null));
+  ProductsCubit() : super(ProductsState(data: []));
 
   var collectionUrl =
       FirebaseFirestore.instance.collection(CollectionKeys.products.value);

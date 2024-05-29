@@ -1,12 +1,10 @@
 import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:provider/provider.dart';
-
 import '../widgets/appointment_stack_button.dart';
+import '../widgets/buy_product_stack_button.dart';
 import '../widgets/gesture_dedector.dart';
 import '../widgets/operations_performed.dart';
-import '../widgets/products_info.dart';
 import '../widgets/stack_galery.view.dart';
 import '../bloc/page_cubit.dart';
 import '../bloc/page_state.dart';
@@ -41,23 +39,13 @@ class HomePageView extends StatelessWidget {
                       OperationsPerformed(index: 3),
                     ],
                   ),
+                  const SizedBox(height: 50),
                   StackGaleryView(
                       changePageKey: context.read<PageCubit>().changePageKey),
-                  const SizedBox(height: 30),
-                  const ProductsInfo(),
-                  const SizedBox(height: 30),
-                  GestureConnection(
-                    color: "#70483A",
-                    assetsName: "assets/images/call.png",
-                    title: LocaleConstants.getInformation,
-                    description: LocaleConstants.getInfoDesc,
-                    iconData: Icons.call,
-                    routers: "call",
-                    titleBottom: -50,
-                    titleRight: 10,
-                    decsBottom: -130,
-                  ),
-                  const SizedBox(height: 200),
+                  const SizedBox(height: 100),
+                  BuyProductsButtonStack(
+                      changePageKey: context.read<PageCubit>().changePageKey),
+                  const SizedBox(height: 80),
                   GestureConnection(
                     changePageKey: context.read<PageCubit>().changePageKey,
                     color: "#C4C800",
@@ -68,6 +56,18 @@ class HomePageView extends StatelessWidget {
                     routers: "appointment",
                     titleBottom: -50,
                     titleRight: -15,
+                    decsBottom: -130,
+                  ),
+                  const SizedBox(height: 200),
+                  GestureConnection(
+                    color: "#70483A",
+                    assetsName: "assets/images/call.png",
+                    title: LocaleConstants.getInformation,
+                    description: LocaleConstants.getInfoDesc,
+                    iconData: Icons.call,
+                    routers: "call",
+                    titleBottom: -50,
+                    titleRight: 10,
                     decsBottom: -130,
                   ),
                   const SizedBox(height: 200),

@@ -13,37 +13,51 @@ class StackGaleryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        Positioned(
-          child: Image.asset("assets/images/galeryView2.png"),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(
+            width: 10,
+            color: HexColor("#4B4848"),
+          ),
+          bottom: BorderSide(
+            width: 10,
+            color: HexColor("#4B4848"),
+          ),
         ),
-        Positioned(
-          bottom: 60,
-          child: ElevatedButton(
-            onPressed: () {
-              changePageKey(PageKeys.galleryView);
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: HexColor("#4B4848"),
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Positioned(
+            child: Image.asset("assets/images/galeryView2.png"),
+          ),
+          Positioned(
+            bottom: 60,
+            child: ElevatedButton(
+              onPressed: () {
+                changePageKey(PageKeys.galleryView);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: HexColor("#4B4848"),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                ),
+                foregroundColor: HexColor("#ffffff"),
               ),
-              foregroundColor: HexColor("#ffffff"),
-            ),
-            child: Text(
-              LocaleConstants.galeryView,
-              style: TextStyle(
-                fontSize: 20,
-                fontFamily: GoogleFonts.azeretMono().fontFamily,
-                fontWeight: FontWeight.w500,
-                letterSpacing: 2.0,
+              child: Text(
+                LocaleConstants.galeryView,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: GoogleFonts.azeretMono().fontFamily,
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 2.0,
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -29,6 +29,16 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>LSApplicationQueriesSchemes</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Uygulama kullanılırken konumunuza erişim izni gereklidir.</string>
+	<key>NSLocationAlwaysUsageDescription</key>	
+	<string>Uygulama her zaman konumunuza erişim izni gereklidir.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Uygulama her zaman ve kullanılırken konumunuza erişim izni gereklidir.</string>
+	<key>io.flutter.embedded_views_preview</key>
+<true/>
+<key>GMSApiKey</key>
+<string>AIzaSyCO_5yvUa4pB7nvs1U7Eo2a-HdHWgrDyek</string>
 	<array>
 		<string>tel</string>
 		<string>whatsapp</string>

@@ -10,39 +10,42 @@ class ProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: BlocBuilder<ProductsCubit, ProductsState>(
-        builder: (context, productList) {
-          if (productList.data!.isEmpty) {
-            return const Text('Bir hata oluştu');
-          }
-          return GridView.builder(
-            itemCount: productList.data!.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              childAspectRatio: 1 / 1.1,
-            ),
-            itemBuilder: (context, index) {
-              var product = productList.data![index];
-              return Card(
-                shape: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(45.0),
+      child: BlocProvider(
+        create: (context) => ProductsCubit()..getProducts(),
+        child: BlocBuilder<ProductsCubit, ProductsState>(
+          builder: (context, productList) {
+            if (productList.data!.isEmpty) {
+              return const CircularProgressIndicator();
+            }
+            return GridView.builder(
+              itemCount: productList.data!.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                childAspectRatio: 1 / 1.1,
+              ),
+              itemBuilder: (context, index) {
+                var product = productList.data![index];
+                return Card(
+                  shape: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(45.0),
+                    ),
+                    borderSide: BorderSide(
+                      width: 5,
+                      color: Colors.brown,
+                    ),
                   ),
-                  borderSide: BorderSide(
-                    width: 5,
-                    color: Colors.brown,
+                  margin: const EdgeInsets.only(
+                      bottom: 30, left: 25, right: 25, top: 20),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: ProductsContent(product: product),
                   ),
-                ),
-                margin: const EdgeInsets.only(
-                    bottom: 30, left: 25, right: 25, top: 20),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: ProductsContent(product: product),
-                ),
-              );
-            },
-          );
-        },
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -44,9 +45,9 @@ class _PaymentPageState extends State<PaymentPage> {
                     ),
                   ),
                   SizedBox(height: size.height * 0.05),
-                  const Text(
-                    "Siparişiniz Alındı",
-                    style: TextStyle(
+                  Text(
+                    LocaleConstants.orderRecieved,
+                    style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w700,
                       color: Colors.black54,
