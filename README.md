@@ -2,7 +2,7 @@
     <h2 align="center">Ladies Hairdresser Appointment System Mobile Application</h2>    
     <p align='center'>
         <a href="https://github.com/sfrqltkn/appointment" align='center'>
-            <img src="assets/images/appLogo.png" width="260" height="200" alt="logo">
+            <img src="screenshot/loginandSignUp/appLogo.png" width="300" height="300" alt="logo">
         </a>
     </p>
     <p align="center">                
@@ -22,17 +22,8 @@
       <a href="#features">Features</a>      
     </li>
     <li>
-        <a href="#prerequisties">Prerequisites</a>
-    </li>
-    <li>
-        <a href="#installation">Installation</a>
-    </li>
-    <li>
         <a href="#resources">Resources</a>
-    </li>    
-    <li>
-        <a href="#license">License</a>
-    </li>    
+    </li>        
   </ol>
 </details>
 
@@ -48,6 +39,8 @@ The project is a part of the senior university project. Today, with the rapid ad
 - Firebase database and Firebase Authentication
 - Easy Localization
 
+<br><br>
+
 ## Features
 
 - Online appointment 
@@ -58,7 +51,10 @@ The project is a part of the senior university project. Today, with the rapid ad
 - Basic service categories offered by the business
 - Visual References
 
-#### Login and SignUp Screen
+
+<br><br>
+
+### Login and SignUp Screen
 
 <p>
     <img src="screenshot/loginandSignUp/signLogin.png" width="350" height="720" alt="login screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -68,6 +64,112 @@ The project is a part of the senior university project. Today, with the rapid ad
 </p>
 
 
+<br><br>
+
+### Home Screen
+
+<p>
+    <img src="screenshot/home/home1.png" width="350" height="720" alt="login screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/home2.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/home3.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/gif1.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/home4.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/gif2.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/home5.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/home6.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/gif3.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/home/home7.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+
+### Apoointment Page
+
+<br><br>
+
+<p>
+    <img src="screenshot/appointment/appo1.png" width="350" height="720" alt="login screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/appointment/appo2.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/appointment/appo3.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/appointment/appo4.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/appointment/gif1.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/appointment/gif2.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/appointment/appo5.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/appointment/gif3.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<br><br>
+
+### Galery Page
+
+<p>
+    <img src="screenshot/galery/galery1.png" width="350" height="720" alt="login screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/galery/galery2.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/galery/galery3.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/galery/gif.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<br><br>
+
+### Product Page
+
+<p>
+    <img src="screenshot/products/product1.png" width="350" height="720" alt="login screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/products/product2.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/products/product3.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/products/gif.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/products/gif2.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/products/gif3.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<br><br>
+
+### Account Page
+
+<p>
+    <img src="screenshot/account/account1.png" width="350" height="720" alt="login screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/account/account2.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/account/gif1.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<br><br>
+
+### About Page
+
+<p>
+    <img src="screenshot/about/about1.png" width="350" height="720" alt="login screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/about/about2.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="screenshot/about/about3.png" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <img src="screenshot/about/gif.gif" width="350" height="720" alt="register screen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<br>
+<br>
+
+## Resources
+
+1. Basic flutter
+
+   - youtube, udemy & documentations, any resource is enough
+
+2. state management in flutter
+
+   - [Bloc + Cubit]
+   - [Provider]
+
+   ##### some minor details
+
+   - Cubit : for state that fetches data from API (CRUD)
+   - Cubit_CUD : cubit that deals with Create, Upate & Delete operation
+   - Cubit_R : cubit that deals with Read operation
+   - provider : for local UI state (ex. toggling login & register screen, detecting current open tab etc)
+   - Setstate : (for quick & rough implementation, can be improved with cubit or provider)
+
+3. Flutter app design architecture
+
+   - MVC
+   - MVVM
+
+<br>
 ## Developed By:
 @Copyright
 - Sefer Can Gültekin

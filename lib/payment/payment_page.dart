@@ -46,6 +46,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 SizedBox(height: size.height * 0.05),
                 Text(
                   LocaleConstants.orderRecieved,
+                  textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
