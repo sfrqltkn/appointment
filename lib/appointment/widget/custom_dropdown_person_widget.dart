@@ -30,6 +30,7 @@ class CustomDropdownPersonWidgetState
   @override
   Widget build(BuildContext context) {
     return CustomDropdown<PersonModel>(
+      overlayHeight: 280,
       decoration: const CustomDropdownDecoration(
         hintStyle: TextStyle(fontWeight: FontWeight.w600),
         listItemStyle: TextStyle(fontSize: 18, letterSpacing: 1.5),

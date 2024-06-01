@@ -19,11 +19,12 @@ class ContactPage extends StatelessWidget {
             children: [
               const SizedBox(height: 40),
               IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.location_on,
-                    size: 40,
-                  )),
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.location_on,
+                  size: 40,
+                ),
+              ),
               const Text(
                 "Yenidoğan, Turhan Baytop Sokak\n No:1, 38280 Talas/Kayseri",
                 textAlign: TextAlign.center,
@@ -35,11 +36,12 @@ class ContactPage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.call,
-                    size: 40,
-                  )),
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.call,
+                  size: 40,
+                ),
+              ),
               TextButton(
                 onPressed: () {
                   callNumber();

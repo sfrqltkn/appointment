@@ -113,27 +113,36 @@ class LocaleConstants {
   static String appointmentButton = "Randevu Al".myLocale;
 
   //paymentPage
-  static String orderRecieved = "Siparişiniz Alındı".myLocale;
+  static String orderRecieved = "Ödeme İşleminiz Tamamlandı!".myLocale;
 
   //aboutPage
-  static String pageImageTitle="Güzellik\n  Hakkında".myLocale;
-  static String pageTitle="Uzman Ekiplerimizle Tanışın".myLocale;
-  static String pageDesc="Zamansız, müşteri odaklı çalışmalar yaratıyoruz.Endüstri standartlarını artırmakve derinlemesine istişarelerden kişiye özel saç stillerine kadar müşterilerimiz için unutulmaz  bir deneyim sunmak istiyoruz.".myLocale;
-  static String humeyraField="Lazer Teknisyeni".myLocale;
-   static String humeyraDescriptiom="2014'ten beri estetisyen ve saç uzmanıyım. Zayıflama, saç bakımı, botoks, anoplasti ve soğuk terapi uzmanlık alanlarım.".myLocale;
-    static String asalField="Tırnak Uzmanı".myLocale;
-   static String asalDescriptiom="Tırnak hizmetlerinde uzmanlaşmıştır. Rus yöntemiyle jel ve Akrilik tırnak çizgileri.".myLocale;
-  static String arifeField="Makyaj Sanatçısı".myLocale;
-   static String arifeDescriptiom="Profesyonel bir makyaj sanatçısı. Ayrıca kaş ve kirpik tasarlama ve kaldırma konusunda uzmandır.".myLocale;
+  static String pageImageTitle = "Güzellik\n  Hakkında".myLocale;
+  static String pageTitle = "Uzman Ekiplerimizle Tanışın".myLocale;
+  static String pageDesc =
+      "Zamansız, müşteri odaklı çalışmalar yaratıyoruz.Endüstri standartlarını artırmakve derinlemesine istişarelerden kişiye özel saç stillerine kadar müşterilerimiz için unutulmaz  bir deneyim sunmak istiyoruz."
+          .myLocale;
+  static String humeyraField = "Lazer Teknisyeni".myLocale;
+  static String humeyraDescriptiom =
+      "2014'ten beri estetisyen ve saç uzmanıyım. Zayıflama, saç bakımı, botoks, anoplasti ve soğuk terapi uzmanlık alanlarım."
+          .myLocale;
+  static String asalField = "Tırnak Uzmanı".myLocale;
+  static String asalDescriptiom =
+      "Tırnak hizmetlerinde uzmanlaşmıştır. Rus yöntemiyle jel ve Akrilik tırnak çizgileri."
+          .myLocale;
+  static String arifeField = "Makyaj Sanatçısı".myLocale;
+  static String arifeDescriptiom =
+      "Profesyonel bir makyaj sanatçısı. Ayrıca kaş ve kirpik tasarlama ve kaldırma konusunda uzmandır."
+          .myLocale;
 
+  static String cagriField = "Saç Stilisti".myLocale;
+  static String cagriDescriptiom =
+      "2007 Yılından itibaren müşterilerime üst düzey saç bakım hizmetleri sunmaktayım."
+          .myLocale;
 
-   static String cagriField="Saç Stilisti".myLocale;
-   static String cagriDescriptiom="2007 Yılından itibaren müşterilerime üst düzey saç bakım hizmetleri sunmaktayım.".myLocale;
-
-
-   static String kubilayField="Saç Stilisti".myLocale;
-   static String kubilayDescriptiom="Her türlü profesyonel saç rengi uzmanı ve saç bakım ürünleri danışmanı ve danışmanı.".myLocale;
-
+  static String kubilayField = "Saç Stilisti".myLocale;
+  static String kubilayDescriptiom =
+      "Her türlü profesyonel saç rengi uzmanı ve saç bakım ürünleri danışmanı ve danışmanı."
+          .myLocale;
 }
 
 extension LocaleExtension on String {

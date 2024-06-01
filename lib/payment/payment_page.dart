@@ -28,34 +28,32 @@ class _PaymentPageState extends State<PaymentPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: Center(
-        child: _isLoading
-            ? const CircularProgressIndicator()
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(height: size.height * 0.10),
-                  SizedBox(
-                    width: size.width * 1,
-                    height: size.height * 0.3,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset("assets/images/payment_tick.jpg"),
-                    ),
+    return Center(
+      child: _isLoading
+          ? const CircularProgressIndicator()
+          : Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: size.height * 0.10),
+                SizedBox(
+                  width: size.width * 1,
+                  height: size.height * 0.3,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset("assets/images/payment_tick.jpg"),
                   ),
-                  SizedBox(height: size.height * 0.05),
-                  Text(
-                    LocaleConstants.orderRecieved,
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black54,
-                    ),
+                ),
+                SizedBox(height: size.height * 0.05),
+                Text(
+                  LocaleConstants.orderRecieved,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black54,
                   ),
-                ],
-              ),
-      ),
+                ),
+              ],
+            ),
     );
   }
 }

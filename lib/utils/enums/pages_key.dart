@@ -9,5 +9,5 @@ enum PageKeys {
   contactView,
   productsView,
   shoppingView,
-  paymentView
+  paymentView,
 }
