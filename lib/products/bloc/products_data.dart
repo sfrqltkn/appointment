@@ -104,7 +104,7 @@ String countItems(int itemsPrice, context) {
         .changeKriyoCount(shoppingProvider.shoppingKriyoItems.length);
     return shoppingProvider.kriyoCount.toString();
   } else {
-    return "";
+    return "0";
   }
 }
 

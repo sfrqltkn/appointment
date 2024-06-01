@@ -49,7 +49,7 @@ class OperationsPerformed extends StatelessWidget {
           Image.asset(
             content[index].imagePath,
             width: 170,
-            height: 230,
+            height: 210,
             fit: BoxFit.cover,
           ),
           const SizedBox(height: 3),
@@ -110,7 +110,7 @@ class OperationsPerformed extends StatelessWidget {
               child: Text(
                 content[index].buttonName,
                 style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     letterSpacing: 1.3),
               ),

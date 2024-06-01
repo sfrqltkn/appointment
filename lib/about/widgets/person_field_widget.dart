@@ -30,7 +30,7 @@ class PersonField extends StatelessWidget {
               fontSize: 12, fontWeight: FontWeight.w700, color: Colors.black87),
         ),
         const SizedBox(height: 30),
-        CircleAvatar(radius: 120, backgroundImage: AssetImage(imageUrl)),
+        CircleAvatar(radius: 110, backgroundImage: NetworkImage(imageUrl)),
         const SizedBox(height: 15),
         Padding(
           padding: const EdgeInsets.all(10.0),

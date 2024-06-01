@@ -60,7 +60,8 @@ class AboutPage extends StatelessWidget {
           PersonField(
               name: "Humeyra",
               operationName: "(${LocaleConstants.humeyraField})",
-              imageUrl: "assets/images/Arife.avif",
+              imageUrl:
+                  "https://helibeauty.com/wp-content/uploads/2023/01/Humeyra-Aydemir.png",
               description: LocaleConstants.humeyraDescriptiom),
           const SizedBox(height: 80),
           const DividerWidget(),
@@ -68,7 +69,8 @@ class AboutPage extends StatelessWidget {
           PersonField(
               name: "Asal",
               operationName: "(${LocaleConstants.asalField})",
-              imageUrl: "assets/images/Asal.avif",
+              imageUrl:
+                  "https://helibeauty.com/wp-content/uploads/2023/01/Asal.png",
               description: LocaleConstants.asalDescriptiom),
           const SizedBox(height: 50),
           const DividerWidget(),
@@ -76,7 +78,8 @@ class AboutPage extends StatelessWidget {
           PersonField(
               name: "Arife",
               operationName: "(${LocaleConstants.arifeField})",
-              imageUrl: "assets/images/Arife.avif",
+              imageUrl:
+                  "https://helibeauty.com/wp-content/uploads/2022/12/Arife.png",
               description: LocaleConstants.arifeDescriptiom),
           const SizedBox(height: 80),
           const DividerWidget(),
@@ -84,7 +87,8 @@ class AboutPage extends StatelessWidget {
           PersonField(
               name: "Çağrı",
               operationName: "(${LocaleConstants.cagriField})",
-              imageUrl: "assets/images/Cagri.avif",
+              imageUrl:
+                  "https://helibeauty.com/wp-content/uploads/2023/01/Cagri.png",
               description: LocaleConstants.cagriDescriptiom),
           const SizedBox(height: 80),
           const DividerWidget(),
@@ -92,7 +96,8 @@ class AboutPage extends StatelessWidget {
           PersonField(
               name: "Kubilay",
               operationName: "(${LocaleConstants.kubilayField})",
-              imageUrl: "assets/images/Kubilay.avif",
+              imageUrl:
+                  "https://helibeauty.com/wp-content/uploads/2022/12/Kubilay.png",
               description: LocaleConstants.kubilayDescriptiom),
         ],
       ),

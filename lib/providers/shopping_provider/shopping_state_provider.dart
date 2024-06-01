@@ -134,4 +134,23 @@ class ShoppingStateProvider with ChangeNotifier {
   final List<Products> shoppingEyelinerItems = [];
 
   final List<Products> shoppingManukaItems = [];
+  //********************************************************/
+
+  String countProduct(Products product) {
+    if (product.price == 550) {
+      return careCount.toString();
+    } else if (product.price == 250) {
+      return herbalCount.toString();
+    } else if (product.price == 450) {
+      return intensiveCount.toString();
+    } else if (product.price == 400) {
+      return manukaCount.toString();
+    } else if (product.price == 350) {
+      return eyelinerCount.toString();
+    } else if (product.price == 300) {
+      return kriyoCount.toString();
+    } else {
+      return "0";
+    }
+  }
 }

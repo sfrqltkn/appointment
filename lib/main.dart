@@ -5,6 +5,7 @@ import 'package:appointment/appointment/bloc/appointment_show_cubit.dart';
 import 'package:appointment/firebase_options.dart';
 import 'package:appointment/galery/bloc/galery_cubit.dart';
 import 'package:appointment/login/view/login_page.dart';
+import 'package:appointment/manager/manager_page.dart';
 import 'package:appointment/products/bloc/products_cubit.dart';
 import 'package:appointment/providers/appointment_select_provider/user_select.dart';
 import 'package:appointment/providers/login_and_signUp_message/eror_message.dart';
@@ -12,6 +13,7 @@ import 'package:appointment/providers/shopping_provider/shopping_state_provider.
 import 'package:appointment/providers/theme/theme_data.dart';
 import 'package:appointment/utils/enums/Constant.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,7 +59,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -80,8 +82,11 @@ class MyApp extends StatelessWidget {
         supportedLocales: context.supportedLocales,
         routes: {
           LoginPage.routeName: (context) => const LoginPage(),
+          ManagerPage.routeName: (context) => const ManagerPage(),
         },
-        initialRoute: LoginPage.routeName,
+        initialRoute: FirebaseAuth.instance.currentUser != null
+            ? ManagerPage.routeName
+            : LoginPage.routeName,
         debugShowCheckedModeBanner: false,
         theme: Provider.of<ThemeColorData>(context).themeColor,
       ),

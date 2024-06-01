@@ -63,8 +63,8 @@ class _SignUpFormState extends State<SignUpForm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SignButton(btnName: LocaleConstants.signUp, func: _signUp),
                 const GoBackButton(),
+                SignButton(btnName: LocaleConstants.signUp, func: _signUp),
               ],
             ),
           ],

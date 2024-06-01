@@ -87,8 +87,7 @@ class _LoginFormState extends State<LoginForm> {
       Provider.of<ErrorMessage>(context, listen: false).changeLoginMessage("");
 
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-            builder: (context) => const ManagerPage(currentIndex: 0)),
+        MaterialPageRoute(builder: (context) => const ManagerPage()),
       );
     }
   }

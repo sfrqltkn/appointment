@@ -39,6 +39,14 @@ class UsersRepository {
     }
   }
 
+  Future<void> signOut() async {
+    try {
+      await _auth.signOut();
+    } catch (e) {
+      debugPrint("signOutFonksiyon");
+    }
+  }
+
   Future<String?> signUp(
       {required String firstname,
       required String lastname,

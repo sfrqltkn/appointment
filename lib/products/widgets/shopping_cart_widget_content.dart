@@ -1,5 +1,7 @@
+import 'package:appointment/providers/shopping_provider/shopping_state_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../data/model/products_model.dart';
 import '../widgets/quantity_btm_widget.dart';
 
@@ -17,7 +19,8 @@ class ShoppingCartWidgetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    final shoppingProvider =
+        Provider.of<ShoppingStateProvider>(context, listen: false);
     return IntrinsicWidth(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -94,7 +97,7 @@ class ShoppingCartWidgetContent extends StatelessWidget {
                         },
                         icon: const Icon(CupertinoIcons.chevron_down, size: 25),
                         label: Text(
-                          countItems(product.price, context),
+                          shoppingProvider.countProduct(product),
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,

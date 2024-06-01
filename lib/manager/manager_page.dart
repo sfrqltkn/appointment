@@ -5,6 +5,7 @@ import 'package:appointment/appointment/view/create_appointment_page.dart';
 import 'package:appointment/appointment/view/appointment_show_page.dart';
 import 'package:appointment/contact/contact.dart';
 import 'package:appointment/data/model/products_model.dart';
+import 'package:appointment/data/repository/users_repository.dart';
 import 'package:appointment/galery/view/galery_page.dart';
 import 'package:appointment/home/view/home_page.dart';
 import 'package:appointment/login/view/login_page.dart';
@@ -25,10 +26,8 @@ import '../providers/appointment_select_provider/user_select.dart';
 import '../utils/enums/constant.dart';
 
 class ManagerPage extends StatefulWidget {
-  const ManagerPage({super.key, required this.currentIndex});
-
-  final int currentIndex;
-
+  const ManagerPage({super.key});
+  static const String routeName = "/ManagerPage";
   @override
   State<ManagerPage> createState() => _ManagerPageState();
 }
@@ -43,18 +42,9 @@ class _ManagerPageState extends State<ManagerPage> {
   ];
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final shoppingProvider = Provider.of<ShoppingStateProvider>(context);
+    final userRepo = UsersRepository();
     return BlocProvider(
       create: (context) => PageCubit(),
       child: BlocBuilder<PageCubit, PageState>(
@@ -64,12 +54,11 @@ class _ManagerPageState extends State<ManagerPage> {
               title: Text(LocaleConstants.appBar),
               actions: [
                 IconButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginPage(),
-                          ));
+                    onPressed: () async {
+                      Navigator.pop(context);
+                      await userRepo.signOut();
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, LoginPage.routeName, (route) => false);
                     },
                     icon: const Icon(Icons.logout))
               ],

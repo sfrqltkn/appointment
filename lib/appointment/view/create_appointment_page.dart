@@ -1,9 +1,12 @@
 import 'package:appointment/appointment/bloc/create_appointment_cubit.dart';
+import 'package:appointment/home/bloc/page_cubit.dart';
 import 'package:appointment/providers/appointment_select_provider/user_select.dart';
 import 'package:appointment/utils/enums/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import '../../home/bloc/page_state.dart';
+import '../../utils/enums/pages_key.dart';
 import '../bloc/create_appointment_state.dart';
 import '../widget/custom_dropdown_operations_widget.dart';
 import '../widget/custom_dropdown_person_widget.dart';
@@ -56,15 +59,22 @@ class _AppointmentState extends State<CreateAppointmentPage> {
                       const SizedBox(
                         height: 50,
                       ),
-                      BottomPriceAndDate(
-                        priceTop: Provider.of<UserSelect>(context).price,
-                        state: state,
-                        activeButton:
-                            Provider.of<UserSelect>(context).isSelectPerson &&
+                      BlocBuilder<PageCubit, PageState>(
+                        builder: (context, _) {
+                          return BottomPriceAndDate(
+                            onCreated: () => context
+                                .read<PageCubit>()
+                                .changePageKey(PageKeys.paymentView),
+                            priceTop: Provider.of<UserSelect>(context).price,
+                            state: state,
+                            activeButton: Provider.of<UserSelect>(context)
+                                        .isSelectPerson &&
                                     Provider.of<UserSelect>(context)
                                         .isSelectedOperation
                                 ? true
                                 : false,
+                          );
+                        },
                       ),
                     ],
                   ),

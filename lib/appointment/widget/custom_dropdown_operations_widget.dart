@@ -28,6 +28,7 @@ class CustomDropdownWidgetState extends State<CustomDropdownOperationWidget> {
   @override
   Widget build(BuildContext context) {
     return CustomDropdown<OperationModel>(
+      overlayHeight: 350,
       decoration: const CustomDropdownDecoration(
         hintStyle: TextStyle(fontWeight: FontWeight.w600),
         listItemStyle: TextStyle(fontSize: 18, letterSpacing: 1.5),
