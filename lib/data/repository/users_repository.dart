@@ -1,10 +1,13 @@
+import 'package:appointment/utils/enums/collection_keys.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:collection';
+import 'package:flutter/material.dart';
 
 class UsersRepository {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final userCollection = FirebaseFirestore.instance.collection("users");
+  final userCollection =
+      FirebaseFirestore.instance.collection(CollectionKeys.users.value);
 
   Future<String?> signIn(
       {required String email, required String password}) async {
@@ -54,6 +57,11 @@ class UsersRepository {
             phoneNumber: phoneNumber,
             email: email,
             password: password);
+        if (!userCredential.user!.emailVerified) {
+          await userCredential.user!.sendEmailVerification();
+        } else {
+          debugPrint("Mail is verified");
+        }
         return null;
       } else {
         return 'An unexpected error occurred';
