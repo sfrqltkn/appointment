@@ -15,7 +15,7 @@
 
 <br><br>
 
-[Download the application APK file](<build/app/outputs/flutter-apk/app-release.apk>)
+[Download the application APK file](<build/app/outputs/flutter-apk/>)
 
 <br><br>
 
