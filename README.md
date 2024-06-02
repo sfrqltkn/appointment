@@ -11,6 +11,8 @@
         <a href="https://drive.google.com/file/d/1M3n9SP5wsAwJCk9v1WEFC_2bHBysnB84/view"> View Report <a>
     </p>
 
+[Download the application APK file](<build/app/outputs/flutter-apk/app-release.apk>)
+
 
 <details open="open">
     <summary>Table of Contents</summary>
@@ -26,6 +28,7 @@
     </li>        
   </ol>
 </details>
+
 
 ## About The Project
 
