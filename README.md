@@ -12,9 +12,13 @@
     </p>
 
 <br>
+
 ##
+
 [Download the application APK file](<build/app/outputs/flutter-apk/app-release.apk>)
+
 ##
+
 <br>
 
 <details open="open">
