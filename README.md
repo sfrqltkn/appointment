@@ -15,7 +15,7 @@
 
 <br><br>
 
-[Download the application APK file](<build/app/outputs/flutter-apk/>)
+[Download the application APK file](https://drive.google.com/file/d/1EYVHlJKsD5JlUx8xqH8__7uXZlKBkg77/view?usp=sharing)
 
 <br><br>
 
