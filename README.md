@@ -8,7 +8,7 @@
     <p align="center">                
         Erciyes University Graduation Thesis
         <br/>    
-        <a href="https://drive.google.com/file/d/1AOMpNd54D5079QIPThIyxhz6zmTumRX3/view?usp=sharing"> View Report <a>
+        <a href="https://drive.google.com/file/d/1M3n9SP5wsAwJCk9v1WEFC_2bHBysnB84/view"> View Report <a>
     </p>
 
 
